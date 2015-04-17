@@ -1,14 +1,12 @@
-package com.twu.biblioteca;
+package com.twu.library.domain;
 
+import com.twu.library.domain.Book;
 import org.junit.Test;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by cmoers on 4/16/15.
- */
 public class BookTest {
 
     @Test

@@ -1,5 +1,7 @@
 .idea/
 out/
 lib/
+META-INF/
 .DS_Store
+
 *.iml
