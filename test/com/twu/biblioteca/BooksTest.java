@@ -2,7 +2,9 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -16,7 +18,8 @@ public class BooksTest {
     public void createBooks(){
         Books predefined = new Books();
 
-        // ver com Anne - assertThat(predefined, hasSize(3));
+        // ver com Anne -
+        //assertThat(predefined, arrayWithSize(3));
 
         assertThat("Title1", is(equalTo(predefined.getBooks().get(0).getTitle())));
         assertThat("Author1", is(equalTo(predefined.getBooks().get(0).getAuthor())));

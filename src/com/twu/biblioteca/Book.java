@@ -9,11 +9,13 @@ public class Book {
     private String title;
     private String author;
     private String yearPublished;
+    private boolean checkOut;
 
     public Book(String title, String author, String yearPublished) {
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
+        this.checkOut = false;
     }
 
     public String getAuthor() {
@@ -27,4 +29,9 @@ public class Book {
     public String getYearPublished() {
         return yearPublished;
     }
+
+    public boolean isCheckOut() {
+        return checkOut;
+    }
+
 }

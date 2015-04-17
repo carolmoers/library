@@ -13,12 +13,10 @@ public class Books {
         Book book1 = new Book("Title1", "Author1", "2011");
         this.books.add(book1);
         Book book2 = new Book("Title2", "Author2", "2012");
-       this.books.add(book2);
-       Book book3 = new Book("Title3", "Author3", "1983");
-       this.books.add(book3);
-
-        System.out.println(books.get(0).getAuthor());
-    }
+        this.books.add(book2);
+        Book book3 = new Book("Title3", "Author3", "1983");
+        this.books.add(book3);
+ }
 
     public List<Book> getBooks() {
         return books;
