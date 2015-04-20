@@ -15,11 +15,11 @@ public class Books {
     }
 
     public List<Book> createPredefinedBooks(){
-        Book book1 = new Book("Title1", "Author1", "2011");
+        Book book1 = new Book("Title1", "Author1", "2011", false);
         this.books.add(book1);
-        Book book2 = new Book("Title2", "Author2", "2012");
+        Book book2 = new Book("Title2", "Author2", "2012", false);
         this.books.add(book2);
-        Book book3 = new Book("Title3", "Author3", "1983");
+        Book book3 = new Book("Title3", "Author3", "1983", false);
         this.books.add(book3);
 
         return this.books;

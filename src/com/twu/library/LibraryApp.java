@@ -19,22 +19,27 @@ public class LibraryApp {
         String mainMenu = menu.mainMenu();
         System.out.println(mainMenu);
 
-        Scanner input = new Scanner(System.in);
-        System.out.print(message.showInputDataMessage());
-        int optionChoose = input.nextInt();
+        try{
+            Scanner input = new Scanner(System.in);
+            System.out.print(message.showInputDataMessage());
+            int optionChoose = input.nextInt();
 
-        switch (optionChoose) {
-            case 1:
-                showBooksLibrary();
-                break;
-            case 2:
-                keepRunning = false;
-                System.out.close();
-                break;
-            default:
-                System.out.println("Select a valid option!");
-                break;
+            switch (optionChoose) {
+                case 1:
+                    showBooksLibrary();
+                    break;
+                case 2:
+                    keepRunning = false;
+                    System.out.close();
+                    break;
+                default:
+                    System.out.println("Select a valid option!");
+                    break;
+            }
+        }catch (Exception err){
+            System.out.println("Select a valid option!");
         }
+
     }
 
     private static void showBooksLibrary(){
@@ -42,11 +47,15 @@ public class LibraryApp {
         List<Book> predefinedBooks = books.createPredefinedBooks();
         List<Book> availableBooks = books.getAvailableBooks(predefinedBooks);
 
+        StringBuilder infoBook = new StringBuilder("Title\t\tAuthor\t\tYear\n");
         for(Book book : availableBooks){
-            String infoBook = book.getTitle();
-            infoBook = infoBook.concat("\n\t\t").concat(book.getAuthor()).concat(" - ").concat(book.getYearPublished());
-
-            System.out.println(infoBook);
+            infoBook.append(book.getTitle());
+            infoBook.append("\t\t");
+            infoBook.append(book.getAuthor());
+            infoBook.append("\t\t");
+            infoBook.append(book.getYearPublished());
+            infoBook.append("\n");
         }
+        System.out.println(infoBook);
     }
 }

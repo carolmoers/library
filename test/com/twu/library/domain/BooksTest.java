@@ -1,9 +1,6 @@
 package com.twu.library.domain;
 
-import com.twu.library.domain.Book;
-import com.twu.library.domain.Books;
 import org.junit.Test;
-
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -59,5 +56,4 @@ public class BooksTest {
         assertThat("1983", is(equalTo(availableBooks.get(1).getYearPublished())));
 
     }
-
 }
