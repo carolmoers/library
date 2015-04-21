@@ -46,8 +46,7 @@ public class Book {
     }
 
     public String checkOutBookByAvailable(List<Book> booksLibrary, Integer codeBookChoose) {
-        Books books = new Books();
-        List<Book> availableBooks = books.getAvailableBooks(booksLibrary);
+        List<Book> availableBooks = Books.getAvailableBooks(booksLibrary);
         String result = "";
 
         try{
@@ -83,6 +82,5 @@ public class Book {
             System.out.println("That is not a valid book to return. Error: "+exc.getMessage());
         }
         return result;
-
     }
 }

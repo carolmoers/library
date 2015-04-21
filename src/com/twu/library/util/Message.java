@@ -15,4 +15,9 @@ public class Message {
         String inputDataMessage = "What book would you like to checkout (choose a number)? ";
         return inputDataMessage;
     }
+
+    public String showInputDataMessageReturnBook() {
+        String inputDataMessage = "What book would you like to return (choose a number)? ";
+        return inputDataMessage;
+    }
 }

@@ -31,5 +31,13 @@ public class MessageTest {
         assertThat("What book would you like to checkout (choose a number)? ", is(equalTo(inputDataMessage)));
     }
 
+    @Test
+    public void showInputDataMessageReturnBookTest(){
+        Message message = new Message();
+        String inputDataMessage = message.showInputDataMessageReturnBook();
+
+        assertThat("What book would you like to return (choose a number)? ", is(equalTo(inputDataMessage)));
+    }
+
 }
 

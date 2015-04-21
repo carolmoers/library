@@ -3,17 +3,17 @@ package com.twu.library.util;
 public class Menu {
 
     public String mainMenu() {
-        String menuOptions = menuOptions();
-        return menuOptions;
-    }
 
-    public String menuOptions() {
-        StringBuilder options = new StringBuilder("Menu Options:\n");
-        options.append("1 - List Books\n");
-        options.append("2 - Checkout Books\n");
-        options.append("3 - Return Books\n");
-        options.append("4 - Quit");
+        StringBuilder menuOptions = new StringBuilder();
+        menuOptions.append("+---------------------------------+\n");
+        menuOptions.append("|           MENU OPTIONS          |\n");
+        menuOptions.append("+---------------------------------+\n");
+        menuOptions.append("|         1 - List Books          |\n");
+        menuOptions.append("|         2 - Checkout Books      |\n");
+        menuOptions.append("|         3 - Return Books        |\n");
+        menuOptions.append("|         4 - Quit                |\n");
+        menuOptions.append("+---------------------------------+");
 
-        return options.toString();
+        return menuOptions.toString();
     }
 }

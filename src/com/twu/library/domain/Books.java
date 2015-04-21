@@ -15,17 +15,17 @@ public class Books {
     }
 
     public List<Book> createPredefinedBooks(){
-        Book book1 = new Book(1, "Title1", "Author1", "2011", false);
+        Book book1 = new Book(1, "The Pragmatic Programmer", "Andrew Hunt, David Thomas", "1999", false);
         this.books.add(book1);
-        Book book2 = new Book(2, "Title2", "Author2", "2012", false);
+        Book book2 = new Book(2, "Head First Java", "Kathy Sierra, Bert Bates", "2005", false);
         this.books.add(book2);
-        Book book3 = new Book(3, "Title3", "Author3", "1983", false);
+        Book book3 = new Book(3, "Test-driven Development", "Kent Beck", "2003", false);
         this.books.add(book3);
 
         return this.books;
     }
 
-    public List<Book> getAvailableBooks(List<Book> books) {
+    public static List<Book> getAvailableBooks(List<Book> books) {
         List<Book> availableBooks = new ArrayList<Book>();
 
         for(Book book : books){
@@ -34,20 +34,5 @@ public class Books {
             }
         }
         return availableBooks;
-    }
-
-    public String showInfoBooks(List<Book> booksToShow) {
-        StringBuilder infoBook = new StringBuilder("Code\t\tTitle\t\tAuthor\t\tYear\n");
-        for(Book book : booksToShow){
-            infoBook.append(book.getCode());
-            infoBook.append("\t\t\t");
-            infoBook.append(book.getTitle());
-            infoBook.append("\t\t\t");
-            infoBook.append(book.getAuthor());
-            infoBook.append("\t\t\t");
-            infoBook.append(book.getYearPublished());
-            infoBook.append("\n");
-        }
-        return infoBook.toString();
     }
 }
