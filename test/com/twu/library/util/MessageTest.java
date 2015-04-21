@@ -20,7 +20,16 @@ public class MessageTest {
         Message message = new Message();
         String inputDataMessage = message.showInputDataMessage();
 
-        assertThat("\nWhat you would like to do (1-2)? ", is(equalTo(inputDataMessage)) );
+        assertThat("\nWhat you would like to do (1-4)? ", is(equalTo(inputDataMessage)) );
     }
+
+    @Test
+    public void showInputDataMessageCheckoutBookTest(){
+        Message message = new Message();
+        String inputDataMessage = message.showInputDataMessageCheckoutBook();
+
+        assertThat("What book would you like to checkout (choose a number)? ", is(equalTo(inputDataMessage)));
+    }
+
 }
 

@@ -12,16 +12,17 @@ public class MenuTest {
         Menu menu = new Menu();
         String options = menu.menuOptions();
 
-        assertThat("Menu Options:\n1 - List Books\n2 - Quit", is(equalTo(options)));
+        assertThat("Menu Options:\n1 - List Books\n2 - Checkout Books\n3 - Return Books\n4 - Quit", is(equalTo(options)));
     }
 
     @Test
     public void mainMenuTest(){
         Menu menu = new Menu();
         String options = menu.menuOptions();
-        options += "\nWhat you would like to do (1-2)? ";
+        Message message = new Message();
+        options += message.showInputDataMessage();
 
-        assertThat("Menu Options:\n1 - List Books\n2 - Quit\n" +
-                "What you would like to do (1-2)? ", is(equalTo(options)));
+        assertThat("Menu Options:\n1 - List Books\n2 - Checkout Books\n3 - Return Books\n4 - Quit" +
+                "\nWhat you would like to do (1-4)? ", is(equalTo(options)));
     }
 }

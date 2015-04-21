@@ -8,9 +8,12 @@ public class Menu {
     }
 
     public String menuOptions() {
-        String options = "Menu Options:\n" +
-                "1 - List Books\n" +
-                "2 - Quit";
-        return options;
+        StringBuilder options = new StringBuilder("Menu Options:\n");
+        options.append("1 - List Books\n");
+        options.append("2 - Checkout Books\n");
+        options.append("3 - Return Books\n");
+        options.append("4 - Quit");
+
+        return options.toString();
     }
 }
