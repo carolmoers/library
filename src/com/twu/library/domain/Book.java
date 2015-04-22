@@ -9,18 +9,18 @@ public class Book {
     private String title;
     private String author;
     private String yearPublished;
-    private boolean checkOut;
+    private boolean checkout;
 
     public Book(){
 
     }
 
-    public Book(Integer code, String title, String author, String yearPublished, boolean checkOut) {
+    public Book(Integer code, String title, String author, String yearPublished, boolean checkout) {
         this.code = code;
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
-        this.checkOut = checkOut;
+        this.checkout = checkout;
     }
 
     public int getCode() {
@@ -39,12 +39,12 @@ public class Book {
         return this.yearPublished;
     }
 
-    public boolean isCheckOut() {
-        return this.checkOut;
+    public boolean isCheckout() {
+        return this.checkout;
     }
 
-    public void setCheckOut(boolean checkOut) {
-        this.checkOut = checkOut;
+    public void setCheckout(boolean checkout) {
+        this.checkout = checkout;
     }
 
     public static String checkoutBookFor(Integer code, List<Book> books) {
@@ -52,7 +52,7 @@ public class Book {
         try{
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
-                    book.setCheckOut(true);
+                    book.setCheckout(true);
                     return Message.SUCCESSFUL_CHECKOUT;
                 }
             }
@@ -65,8 +65,8 @@ public class Book {
     public static String returnBookToLibraryFor(Integer code, List<Book> books) {
         try{
             for(Book book : books){
-                if(code.equals(book.getCode()) && book.isCheckOut()){
-                    book.setCheckOut(false);
+                if(code.equals(book.getCode()) && book.isCheckout()){
+                    book.setCheckout(false);
                     return  Message.SUCCESSFUL_RETURN;
                 }
             }

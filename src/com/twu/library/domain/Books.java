@@ -29,7 +29,7 @@ public class Books {
         List<Book> availableBooks = new ArrayList<Book>();
 
         for(Book book : books){
-            if(!book.isCheckOut()){
+            if(!book.isCheckout()){
                  availableBooks.add(book);
             }
         }
@@ -40,7 +40,7 @@ public class Books {
         List<Book> availableBooks = new ArrayList<Book>();
 
         for(Book book : books){
-            if(book.isCheckOut()){
+            if(book.isCheckout()){
                 availableBooks.add(book);
             }
         }

@@ -61,12 +61,12 @@ public class LibraryApp {
     }
 
     private static void showBooksLibrary(){
-        showInfoBooks(Books.getAvailableBooksToCheckout(books));
+        showBookDetails(Books.getAvailableBooksToCheckout(books));
     }
 
     private static void showBooksToCheckout(String message, List<Book> books){
         try{
-            showInfoBooks(books);
+            showBookDetails(books);
             Integer code = getInputData(message);
             String resultCheckout = Book.checkoutBookFor(code, books);
             System.out.println(resultCheckout);
@@ -77,7 +77,7 @@ public class LibraryApp {
 
     private static void showBooksToReturn(String message, List<Book> books){
         try{
-            showInfoBooks(books);
+            showBookDetails(books);
             Integer code = getInputData(message);
             String resultCheckout = Book.returnBookToLibraryFor(code, books);
             System.out.println(resultCheckout);
@@ -86,7 +86,7 @@ public class LibraryApp {
         }
     }
 
-    private static void showInfoBooks(List<Book> books){
+    private static void showBookDetails(List<Book> books){
         if(!books.isEmpty()) {
             String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s |%n";
 

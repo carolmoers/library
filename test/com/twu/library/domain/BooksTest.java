@@ -29,12 +29,11 @@ public class BooksTest {
         assertThat("Test-driven Development", is(equalTo(books.getBooks().get(2).getTitle())));
         assertThat("Kent Beck", is(equalTo(books.getBooks().get(2).getAuthor())));
         assertThat("2003", is(equalTo(books.getBooks().get(2).getYearPublished())));
-
     }
 
     @Test
     public void getAvailableBooksToCheckoutTest(){
-        List<Book> availableBooks = Books.getAvailableBooksToCheckout(this.getBookList());
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(this.getBooks());
 
         assertThat(availableBooks.size(), is(2));
 
@@ -45,12 +44,11 @@ public class BooksTest {
         assertThat("Title3", is(equalTo(availableBooks.get(1).getTitle())));
         assertThat("Author3", is(equalTo(availableBooks.get(1).getAuthor())));
         assertThat("1983", is(equalTo(availableBooks.get(1).getYearPublished())));
-
     }
 
     @Test
     public void getAvailableBooksToReturnTest(){
-        List<Book> availableBooks = Books.getAvailableBooksToReturn(this.getBookList());
+        List<Book> availableBooks = Books.getAvailableBooksToReturn(this.getBooks());
 
         assertThat(availableBooks.size(), is(2));
 
@@ -61,10 +59,9 @@ public class BooksTest {
         assertThat("Title4", is(equalTo(availableBooks.get(1).getTitle())));
         assertThat("Author4", is(equalTo(availableBooks.get(1).getAuthor())));
         assertThat("2014", is(equalTo(availableBooks.get(1).getYearPublished())));
-
     }
 
-    private List<Book> getBookList(){
+    private List<Book> getBooks(){
         Books listOfBooks = new Books();
         List<Book> books = listOfBooks.getBooks();
 

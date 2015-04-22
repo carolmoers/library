@@ -27,8 +27,8 @@ public class BookTest {
     }
 
     @Test
-    public void checkOutBookTest(){
-        List<Book> books = this.getBookList();
+    public void checkoutBookTest(){
+        List<Book> books = this.getBooks();
 
         Book book = new Book();
         int code = 1;
@@ -38,8 +38,8 @@ public class BookTest {
     }
 
     @Test
-    public void checkOutBookThatIsAlreadyCheckoutTest(){
-        List<Book> books = this.getBookList();
+    public void checkoutBookThatIsAlreadyCheckoutTest(){
+        List<Book> books = this.getBooks();
 
         Book book = new Book();
         int code = 4;
@@ -50,7 +50,7 @@ public class BookTest {
 
     @Test
     public void returnBookTest(){
-        List<Book> books = this.getBookList();
+        List<Book> books = this.getBooks();
 
         Book book = new Book();
         int code = 2;
@@ -61,7 +61,7 @@ public class BookTest {
 
     @Test
     public void returnBookThatIsAlreadyInLibraryTest(){
-        List<Book> books = this.getBookList();
+        List<Book> books = this.getBooks();
 
         Book book = new Book();
         int code = 3;
@@ -70,7 +70,7 @@ public class BookTest {
         assertThat(returnBook, is(equalTo("It is not a valid book to return.")));
     }
 
-    private List<Book> getBookList(){
+    private List<Book> getBooks(){
         Books listOfBooks = new Books();
         List<Book> books = listOfBooks.getBooks();
 
