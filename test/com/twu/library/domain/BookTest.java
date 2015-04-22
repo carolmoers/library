@@ -31,8 +31,8 @@ public class BookTest {
         List<Book> books = this.getBookList();
 
         Book book = new Book();
-        int codeBookChoose = 1;
-        String returnCheckout = book.checkOutBookByAvailable(books,codeBookChoose);
+        int code = 1;
+        String returnCheckout = book.checkOutBookByAvailable(books,code);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the book.")));
     }
@@ -42,8 +42,8 @@ public class BookTest {
         List<Book> books = this.getBookList();
 
         Book book = new Book();
-        int codeBookChoose = 4;
-        String returnCheckout = book.checkOutBookByAvailable(books, codeBookChoose);
+        int code = 4;
+        String returnCheckout = book.checkOutBookByAvailable(books, code);
 
         assertThat(returnCheckout, is(equalTo("That book is not available.")));
     }
@@ -53,8 +53,8 @@ public class BookTest {
         List<Book> books = this.getBookList();
 
         Book book = new Book();
-        int codeBookReturn = 2;
-        String returnBook = book.returnBookToLibrary(books, codeBookReturn);
+        int code = 2;
+        String returnBook = book.returnBookToLibrary(books, code);
 
         assertThat(returnBook, is(equalTo("Thank you for returning the book.")));
     }
@@ -64,8 +64,8 @@ public class BookTest {
         List<Book> books = this.getBookList();
 
         Book book = new Book();
-        int codeBookReturn = 3;
-        String returnBook = book.returnBookToLibrary(books, codeBookReturn);
+        int code = 3;
+        String returnBook = book.returnBookToLibrary(books, code);
 
         assertThat(returnBook, is(equalTo("That is not a valid book to return.")));
     }

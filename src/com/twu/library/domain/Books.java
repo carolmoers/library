@@ -15,12 +15,12 @@ public class Books {
     }
 
     public List<Book> createPredefinedBooks(){
-        Book book1 = new Book(1, "The Pragmatic Programmer", "Andrew Hunt, David Thomas", "1999", false);
-        this.books.add(book1);
-        Book book2 = new Book(2, "Head First Java", "Kathy Sierra, Bert Bates", "2005", false);
-        this.books.add(book2);
-        Book book3 = new Book(3, "Test-driven Development", "Kent Beck", "2003", false);
-        this.books.add(book3);
+        Book firstBook = new Book(1, "The Pragmatic Programmer", "Andrew Hunt, David Thomas", "1999", false);
+        this.books.add(firstBook);
+        Book secondBook = new Book(2, "Head First Java", "Kathy Sierra, Bert Bates", "2005", false);
+        this.books.add(secondBook);
+        Book thirdBook = new Book(3, "Test-driven Development", "Kent Beck", "2003", false);
+        this.books.add(thirdBook);
 
         return this.books;
     }

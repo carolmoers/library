@@ -47,40 +47,30 @@ public class Book {
 
     public String checkOutBookByAvailable(List<Book> books, Integer code) {
         List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
-        String result = "";
-
         try{
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckOut(true);
-                    result = "Thank you! Enjoy the book.";
-                    break;
-                }else{
-                    result = "That book is not available.";
+                    return "Thank you! Enjoy the book.";
                 }
             }
         }catch(Exception ex){
             System.out.println("That book is not available. Error: " + ex.getMessage());
         }
-        return result;
+        return "That book is not available.";
     }
 
     public String returnBookToLibrary(List<Book> books, Integer code) {
-        String result = "";
-
         try{
             for(Book book : books){
                 if(code.equals(book.getCode()) && book.isCheckOut()){
                     book.setCheckOut(false);
-                    result = "Thank you for returning the book.";
-                    break;
-                }else{
-                    result = "That is not a valid book to return.";
+                    return  "Thank you for returning the book.";
                 }
             }
         }catch (Exception ex){
             System.out.println("That is not a valid book to return. Error: " + ex.getMessage());
         }
-        return result;
+        return "That is not a valid book to return.";
     }
 }
