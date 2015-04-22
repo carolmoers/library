@@ -48,8 +48,8 @@ public class Book {
     }
 
     public static String checkoutBookFor(Integer code, List<Book> books) {
-        List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
         try{
+            List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckout(true);

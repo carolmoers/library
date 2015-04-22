@@ -15,41 +15,39 @@ public class LibraryApp {
     public static void main(String[] args) {
         Books listOfBooks = new Books();
         books = listOfBooks.createPredefinedBooks();
-
-        try{
-            Message message = new Message();
-            System.out.println(Message.WELCOME_MESSAGE);
-            optionsApp(message);
-        }catch (Exception ex){
-            System.out.println(Message.ERROR + ex.getMessage());
-        }
+        System.out.println(Message.WELCOME_MESSAGE);
+        optionsApp();
     }
 
-    private static void optionsApp(Message message){
-        while(keepRunning) {
-            Menu menu = new Menu();
-            String mainMenu = menu.mainMenu();
-            System.out.println(mainMenu);
+    private static void optionsApp(){
+        while (keepRunning) {
+            try {
+                Menu menu = new Menu();
+                String mainMenu = menu.mainMenu();
+                System.out.println(mainMenu);
 
-            Integer optionChoose = getInputData(Message.MAIN_MENU_INPUT_DATA);
+                Integer optionChoose = getInputData(Message.MAIN_MENU_INPUT_DATA);
 
-            switch (optionChoose) {
-                case 1:
-                    showBooksLibrary();
-                    break;
-                case 2:
-                    showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
-                    break;
-                case 3:
-                    showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
-                    break;
-                case 4:
-                    keepRunning = false;
-                    System.out.close();
-                    break;
-                default:
-                    System.out.println(Message.INVALID_OPTION);
-                    break;
+                switch (optionChoose) {
+                    case 1:
+                        showBooksLibrary();
+                        break;
+                    case 2:
+                        showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
+                        break;
+                    case 3:
+                        showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
+                        break;
+                    case 4:
+                        keepRunning = false;
+                        System.out.close();
+                        break;
+                    default:
+                        System.out.println(Message.INVALID_OPTION);
+                        break;
+                }
+            }catch (Exception ex){
+                System.out.println(Message.INVALID_INPUT);
             }
         }
     }
