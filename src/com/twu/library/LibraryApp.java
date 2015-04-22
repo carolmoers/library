@@ -18,10 +18,10 @@ public class LibraryApp {
 
         try{
             Message message = new Message();
-            System.out.println(message.showWelcomeMessage());
+            System.out.println(Message.WELCOME_MESSAGE);
             optionsApp(message);
         }catch (Exception ex){
-            System.out.println("Something got wrong, the applicattion will close. Error: " + ex.getMessage());
+            System.out.println(Message.ERROR + ex.getMessage());
         }
     }
 
@@ -31,35 +31,33 @@ public class LibraryApp {
             String mainMenu = menu.mainMenu();
             System.out.println(mainMenu);
 
-            Integer optionChoose = getInputData(message.showInputDataMessage());
+            Integer optionChoose = getInputData(Message.MAIN_MENU_INPUT_DATA);
 
             switch (optionChoose) {
                 case 1:
                     showBooksLibrary();
                     break;
                 case 2:
-                    showBooksToCheckout(message.showInputDataMessageCheckoutBook(), Books.getAvailableBooksToCheckout(books));
+                    showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
                     break;
                 case 3:
-                    showBooksToReturn(message.showInputDataMessageReturnBook(), Books.getAvailableBooksToReturn(books));
+                    showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
                     break;
                 case 4:
                     keepRunning = false;
                     System.out.close();
                     break;
                 default:
-                    System.out.println("Select a valid option!");
+                    System.out.println(Message.INVALID_OPTION);
                     break;
             }
         }
     }
 
     private static Integer getInputData(String message){
-
-            Scanner input = new Scanner(System.in);
-            System.out.print(message);
-            return input.nextInt();
-
+        Scanner input = new Scanner(System.in);
+        System.out.print(message);
+        return input.nextInt();
     }
 
     private static void showBooksLibrary(){
@@ -73,7 +71,7 @@ public class LibraryApp {
             String resultCheckout = Book.checkoutBookFor(code, books);
             System.out.println(resultCheckout);
         } catch (java.util.InputMismatchException ex) {
-            System.out.println("Invalid input, needs to be a number.");
+            System.out.println(Message.INVALID_INPUT);
         }
     }
 
@@ -84,7 +82,7 @@ public class LibraryApp {
             String resultCheckout = Book.returnBookToLibraryFor(code, books);
             System.out.println(resultCheckout);
         } catch (java.util.InputMismatchException ex) {
-            System.out.println("Invalid input, needs to be a number.");
+            System.out.println(Message.INVALID_INPUT);
         }
     }
 
@@ -102,7 +100,7 @@ public class LibraryApp {
             System.out.format("+------+---------------------------+---------------------------+-------+%n");
         }else{
             System.out.format("+------+---------------------------+---------------------------+-------+%n");
-            System.out.printf("|                    There is no available books                       |%n");
+            System.out.printf("|                    There are no available books                      |%n");
             System.out.format("+------+---------------------------+---------------------------+-------+%n");
         }
     }

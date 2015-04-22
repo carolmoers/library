@@ -1,5 +1,7 @@
 package com.twu.library.domain;
 
+import com.twu.library.util.Message;
+
 import java.util.List;
 
 public class Book {
@@ -51,13 +53,13 @@ public class Book {
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckOut(true);
-                    return "Thank you! Enjoy the book.";
+                    return Message.SUCCESSFUL_CHECKOUT;
                 }
             }
         }catch(Exception ex){
-            System.out.println("That book is not available. Error: " + ex.getMessage());
+            System.out.println(Message.ERROR + ex.getMessage());
         }
-        return "That book is not available.";
+        return Message.UNSUCCESSFUL_CHECKOUT;
     }
 
     public static String returnBookToLibraryFor(Integer code, List<Book> books) {
@@ -65,12 +67,12 @@ public class Book {
             for(Book book : books){
                 if(code.equals(book.getCode()) && book.isCheckOut()){
                     book.setCheckOut(false);
-                    return  "Thank you for returning the book.";
+                    return  Message.SUCCESSFUL_RETURN;
                 }
             }
         }catch (Exception ex){
-            System.out.println("That is not a valid book to return. Error: " + ex.getMessage());
+            System.out.println(Message.ERROR + ex.getMessage());
         }
-        return "That is not a valid book to return.";
+        return Message.UNSUCCESSFUL_RETURN;
     }
 }

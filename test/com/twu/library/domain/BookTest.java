@@ -45,7 +45,7 @@ public class BookTest {
         int code = 4;
         String returnCheckout = book.checkoutBookFor(code, books);
 
-        assertThat(returnCheckout, is(equalTo("That book is not available.")));
+        assertThat(returnCheckout, is(equalTo("The book is not available.")));
     }
 
     @Test
@@ -67,21 +67,21 @@ public class BookTest {
         int code = 3;
         String returnBook = book.returnBookToLibraryFor(code, books);
 
-        assertThat(returnBook, is(equalTo("That is not a valid book to return.")));
+        assertThat(returnBook, is(equalTo("It is not a valid book to return.")));
     }
 
     private List<Book> getBookList(){
         Books listOfBooks = new Books();
         List<Book> books = listOfBooks.getBooks();
 
-        Book book1 = new Book(1, "Title1", "Author1", "2011", false);
-        books.add(book1);
-        Book book2 = new Book(2, "Title2", "Author2", "2012", true);
-        books.add(book2);
-        Book book3 = new Book(3, "Title3", "Author3", "1983", false);
-        books.add(book3);
-        Book book4 = new Book(4, "Title4", "Author4", "2014", true);
-        books.add(book4);
+        Book firstBook = new Book(1, "Title1", "Author1", "2011", false);
+        books.add(firstBook);
+        Book secondBook = new Book(2, "Title2", "Author2", "2012", true);
+        books.add(secondBook);
+        Book thirdBook = new Book(3, "Title3", "Author3", "1983", false);
+        books.add(thirdBook);
+        Book fourthBook = new Book(4, "Title4", "Author4", "2014", true);
+        books.add(fourthBook);
 
         return books;
     }
