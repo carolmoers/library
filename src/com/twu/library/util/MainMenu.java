@@ -1,8 +1,8 @@
 package com.twu.library.util;
 
-public class Menu {
+public class MainMenu {
 
-    public String mainMenu() {
+    public String createMainMenu() {
 
         StringBuilder menuOptions = new StringBuilder();
         menuOptions.append("+---------------------------------+\n");

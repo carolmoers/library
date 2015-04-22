@@ -58,6 +58,7 @@ public class Book {
             }
         }catch(Exception ex){
             System.out.println(Message.ERROR + ex.getMessage());
+            throw new IllegalArgumentException();
         }
         return Message.UNSUCCESSFUL_CHECKOUT;
     }
@@ -72,6 +73,7 @@ public class Book {
             }
         }catch (Exception ex){
             System.out.println(Message.ERROR + ex.getMessage());
+            throw new IllegalArgumentException();
         }
         return Message.UNSUCCESSFUL_RETURN;
     }

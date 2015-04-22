@@ -2,6 +2,7 @@ package com.twu.library.domain;
 
 import org.junit.Test;
 
+import java.util.InputMismatchException;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -48,6 +49,13 @@ public class BookTest {
         assertThat(returnCheckout, is(equalTo("The book is not available.")));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void checkoutBookThrowExceptionTest(){
+        Book book = new Book();
+        int code = 4;
+        book.checkoutBookFor(code, null);
+    }
+
     @Test
     public void returnBookTest(){
         List<Book> books = this.getBooks();
@@ -68,6 +76,13 @@ public class BookTest {
         String returnBook = book.returnBookToLibraryFor(code, books);
 
         assertThat(returnBook, is(equalTo("It is not a valid book to return.")));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void returnBookThrowExceptionTest(){
+        Book book = new Book();
+        int code = 3;
+        book.returnBookToLibraryFor(code, null);
     }
 
     private List<Book> getBooks(){

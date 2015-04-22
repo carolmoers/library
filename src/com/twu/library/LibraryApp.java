@@ -2,11 +2,11 @@ package com.twu.library;
 
 import com.twu.library.domain.Book;
 import com.twu.library.domain.Books;
-import com.twu.library.util.Menu;
+import com.twu.library.processor.BookProcessor;
+import com.twu.library.util.MainMenu;
 import com.twu.library.util.Message;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class LibraryApp {
     private static boolean keepRunning = true;
@@ -22,21 +22,22 @@ public class LibraryApp {
     private static void optionsApp(){
         while (keepRunning) {
             try {
-                Menu menu = new Menu();
-                String mainMenu = menu.mainMenu();
+                MainMenu menu = new MainMenu();
+                String mainMenu = menu.createMainMenu();
                 System.out.println(mainMenu);
 
-                Integer optionChoose = getInputData(Message.MAIN_MENU_INPUT_DATA);
+                BookProcessor bookProcessor = new BookProcessor();
+                Integer optionChoose = bookProcessor.getInputData(Message.MAIN_MENU_INPUT_DATA);
 
                 switch (optionChoose) {
                     case 1:
-                        showBooksLibrary();
+                        bookProcessor.showBooksLibrary(books);
                         break;
                     case 2:
-                        showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
+                        bookProcessor.showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
                         break;
                     case 3:
-                        showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
+                        bookProcessor.showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
                         break;
                     case 4:
                         keepRunning = false;
@@ -49,57 +50,6 @@ public class LibraryApp {
             }catch (Exception ex){
                 System.out.println(Message.INVALID_INPUT);
             }
-        }
-    }
-
-    private static Integer getInputData(String message){
-        Scanner input = new Scanner(System.in);
-        System.out.print(message);
-        return input.nextInt();
-    }
-
-    private static void showBooksLibrary(){
-        showBookDetails(Books.getAvailableBooksToCheckout(books));
-    }
-
-    private static void showBooksToCheckout(String message, List<Book> books){
-        try{
-            showBookDetails(books);
-            Integer code = getInputData(message);
-            String resultCheckout = Book.checkoutBookFor(code, books);
-            System.out.println(resultCheckout);
-        } catch (java.util.InputMismatchException ex) {
-            System.out.println(Message.INVALID_INPUT);
-        }
-    }
-
-    private static void showBooksToReturn(String message, List<Book> books){
-        try{
-            showBookDetails(books);
-            Integer code = getInputData(message);
-            String resultCheckout = Book.returnBookToLibraryFor(code, books);
-            System.out.println(resultCheckout);
-        } catch (java.util.InputMismatchException ex) {
-            System.out.println(Message.INVALID_INPUT);
-        }
-    }
-
-    private static void showBookDetails(List<Book> books){
-        if(!books.isEmpty()) {
-            String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s |%n";
-
-            System.out.format("+------+---------------------------+---------------------------+-------+%n");
-            System.out.printf("| Code | Title                     | Author                    | Year  |%n");
-            System.out.format("+------+---------------------------+---------------------------+-------+%n");
-
-            for (Book book : books) {
-                System.out.format(leftAlignFormat, book.getCode(), book.getTitle(), book.getAuthor(), book.getYearPublished());
-            }
-            System.out.format("+------+---------------------------+---------------------------+-------+%n");
-        }else{
-            System.out.format("+------+---------------------------+---------------------------+-------+%n");
-            System.out.printf("|                    There are no available books                      |%n");
-            System.out.format("+------+---------------------------+---------------------------+-------+%n");
         }
     }
 }

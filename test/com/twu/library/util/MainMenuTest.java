@@ -6,12 +6,12 @@ import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 
-public class MenuTest {
+public class MainMenuTest {
 
     @Test
     public void mainMenuTest(){
-        Menu menu = new Menu();
-        String result = menu.mainMenu();
+        MainMenu mainMenu = new MainMenu();
+        String result = mainMenu.createMainMenu();
 
         StringBuilder expectedResult = new StringBuilder();
         expectedResult.append("+---------------------------------+\n");
