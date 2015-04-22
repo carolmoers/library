@@ -59,8 +59,8 @@ public class Book {
                     result = "That book is not available.";
                 }
             }
-        }catch(Exception exc){
-            System.out.println("That book is not available. Error: " + exc.getMessage());
+        }catch(Exception ex){
+            System.out.println("That book is not available. Error: " + ex.getMessage());
         }
         return result;
     }
@@ -78,8 +78,8 @@ public class Book {
                     result = "That is not a valid book to return.";
                 }
             }
-        }catch (Exception exc){
-            System.out.println("That is not a valid book to return. Error: "+exc.getMessage());
+        }catch (Exception ex){
+            System.out.println("That is not a valid book to return. Error: " + ex.getMessage());
         }
         return result;
     }

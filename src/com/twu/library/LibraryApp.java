@@ -48,8 +48,8 @@ public class LibraryApp {
                         break;
                 }
             }
-        }catch (Exception err){
-            System.out.println("Something got wrong, the applicattion will close. Error: "+ err.getMessage());
+        }catch (Exception ex){
+            System.out.println("Something got wrong, the applicattion will close. Error: " + ex.getMessage());
         }
     }
 
