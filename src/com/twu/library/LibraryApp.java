@@ -55,14 +55,14 @@ public class LibraryApp {
 
     private static void showBooksLibrary(){
         List<Book> predefinedBooks = books;
-        showInfoBooks(Books.getAvailableBooks(predefinedBooks));
+        showInfoBooks(Books.getAvailableBooksToCheckout(predefinedBooks));
     }
 
     private static void showBooksCheckout(){
         List<Book> booksToCheckout = books;
 
-        List<Book> availableBooks = Books.getAvailableBooks(booksToCheckout);
-        showInfoBooks(Books.getAvailableBooks(availableBooks));
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(booksToCheckout);
+        showInfoBooks(Books.getAvailableBooksToCheckout(availableBooks));
 
         Message message = new Message();
         Scanner input = new Scanner(System.in);
@@ -76,7 +76,7 @@ public class LibraryApp {
 
     private static void showBooksToReturn(){
         List<Book> booksLibrary = books;
-        showInfoBooks(Books.getAvailableBooks(booksLibrary));
+        showInfoBooks(Books.getAvailableBooksToReturn(booksLibrary));
 
         Message message = new Message();
         Scanner input = new Scanner(System.in);

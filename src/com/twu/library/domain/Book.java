@@ -46,7 +46,7 @@ public class Book {
     }
 
     public String checkOutBookByAvailable(List<Book> booksLibrary, Integer codeBookChoose) {
-        List<Book> availableBooks = Books.getAvailableBooks(booksLibrary);
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(booksLibrary);
         String result = "";
 
         try{

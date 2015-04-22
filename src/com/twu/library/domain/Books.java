@@ -25,12 +25,23 @@ public class Books {
         return this.books;
     }
 
-    public static List<Book> getAvailableBooks(List<Book> books) {
+    public static List<Book> getAvailableBooksToCheckout(List<Book> books) {
         List<Book> availableBooks = new ArrayList<Book>();
 
         for(Book book : books){
             if(!book.isCheckOut()){
                  availableBooks.add(book);
+            }
+        }
+        return availableBooks;
+    }
+
+    public static List<Book> getAvailableBooksToReturn(List<Book> books) {
+        List<Book> availableBooks = new ArrayList<Book>();
+
+        for(Book book : books){
+            if(book.isCheckOut()){
+                availableBooks.add(book);
             }
         }
         return availableBooks;
