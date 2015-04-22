@@ -45,13 +45,13 @@ public class Book {
         this.checkOut = checkOut;
     }
 
-    public String checkOutBookByAvailable(List<Book> booksLibrary, Integer codeBookChoose) {
-        List<Book> availableBooks = Books.getAvailableBooksToCheckout(booksLibrary);
+    public String checkOutBookByAvailable(List<Book> books, Integer code) {
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
         String result = "";
 
         try{
             for (Book book : availableBooks) {
-                if (codeBookChoose.equals(book.getCode())) {
+                if (code.equals(book.getCode())) {
                     book.setCheckOut(true);
                     result = "Thank you! Enjoy the book.";
                     break;
@@ -65,12 +65,12 @@ public class Book {
         return result;
     }
 
-    public String returnBookToLibrary(List<Book> books, Integer codeBookReturn) {
+    public String returnBookToLibrary(List<Book> books, Integer code) {
         String result = "";
 
         try{
             for(Book book : books){
-                if(codeBookReturn.equals(book.getCode()) && book.isCheckOut()){
+                if(code.equals(book.getCode()) && book.isCheckOut()){
                     book.setCheckOut(false);
                     result = "Thank you for returning the book.";
                     break;

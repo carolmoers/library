@@ -28,61 +28,61 @@ public class BookTest {
 
     @Test
     public void checkOutBookTest(){
-        List<Book> booksLibrary = this.getBookList();
+        List<Book> books = this.getBookList();
 
         Book book = new Book();
         int codeBookChoose = 1;
-        String returnCheckout = book.checkOutBookByAvailable(booksLibrary,codeBookChoose);
+        String returnCheckout = book.checkOutBookByAvailable(books,codeBookChoose);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the book.")));
     }
 
     @Test
     public void checkOutBookThatIsAlreadyCheckoutTest(){
-        List<Book> booksLibrary = this.getBookList();
+        List<Book> books = this.getBookList();
 
         Book book = new Book();
         int codeBookChoose = 4;
-        String returnCheckout = book.checkOutBookByAvailable(booksLibrary, codeBookChoose);
+        String returnCheckout = book.checkOutBookByAvailable(books, codeBookChoose);
 
         assertThat(returnCheckout, is(equalTo("That book is not available.")));
     }
 
     @Test
     public void returnBookTest(){
-        List<Book> booksLibrary = this.getBookList();
+        List<Book> books = this.getBookList();
 
         Book book = new Book();
         int codeBookReturn = 2;
-        String returnBook = book.returnBookToLibrary(booksLibrary, codeBookReturn);
+        String returnBook = book.returnBookToLibrary(books, codeBookReturn);
 
         assertThat(returnBook, is(equalTo("Thank you for returning the book.")));
     }
 
     @Test
     public void returnBookThatIsAlreadyInLibraryTest(){
-        List<Book> booksLibrary = this.getBookList();
+        List<Book> books = this.getBookList();
 
         Book book = new Book();
         int codeBookReturn = 3;
-        String returnBook = book.returnBookToLibrary(booksLibrary, codeBookReturn);
+        String returnBook = book.returnBookToLibrary(books, codeBookReturn);
 
         assertThat(returnBook, is(equalTo("That is not a valid book to return.")));
     }
 
     private List<Book> getBookList(){
         Books listOfBooks = new Books();
-        List<Book> booksLibrary = listOfBooks.getBooks();
+        List<Book> books = listOfBooks.getBooks();
 
         Book book1 = new Book(1, "Title1", "Author1", "2011", false);
-        booksLibrary.add(book1);
+        books.add(book1);
         Book book2 = new Book(2, "Title2", "Author2", "2012", true);
-        booksLibrary.add(book2);
+        books.add(book2);
         Book book3 = new Book(3, "Title3", "Author3", "1983", false);
-        booksLibrary.add(book3);
+        books.add(book3);
         Book book4 = new Book(4, "Title4", "Author4", "2014", true);
-        booksLibrary.add(book4);
+        books.add(book4);
 
-        return booksLibrary;
+        return books;
     }
 }

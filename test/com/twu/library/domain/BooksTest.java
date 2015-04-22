@@ -11,31 +11,30 @@ import static org.junit.Assert.assertThat;
 public class BooksTest {
     @Test
     public void createBooksTest(){
-        Books listOfBooks = new Books();
+        Books books = new Books();
 
-        assertThat(listOfBooks.createPredefinedBooks().size(), is(3));
+        assertThat(books.createPredefinedBooks().size(), is(3));
 
-        assertThat(1, is(equalTo(listOfBooks.getBooks().get(0).getCode())));
-        assertThat("The Pragmatic Programmer", is(equalTo(listOfBooks.getBooks().get(0).getTitle())));
-        assertThat("Andrew Hunt, David Thomas", is(equalTo(listOfBooks.getBooks().get(0).getAuthor())));
-        assertThat("1999", is(equalTo(listOfBooks.getBooks().get(0).getYearPublished())));
+        assertThat(1, is(equalTo(books.getBooks().get(0).getCode())));
+        assertThat("The Pragmatic Programmer", is(equalTo(books.getBooks().get(0).getTitle())));
+        assertThat("Andrew Hunt, David Thomas", is(equalTo(books.getBooks().get(0).getAuthor())));
+        assertThat("1999", is(equalTo(books.getBooks().get(0).getYearPublished())));
 
-        assertThat(2, is(equalTo(listOfBooks.getBooks().get(1).getCode())));
-        assertThat("Head First Java", is(equalTo(listOfBooks.getBooks().get(1).getTitle())));
-        assertThat("Kathy Sierra, Bert Bates", is(equalTo(listOfBooks.getBooks().get(1).getAuthor())));
-        assertThat("2005", is(equalTo(listOfBooks.getBooks().get(1).getYearPublished())));
+        assertThat(2, is(equalTo(books.getBooks().get(1).getCode())));
+        assertThat("Head First Java", is(equalTo(books.getBooks().get(1).getTitle())));
+        assertThat("Kathy Sierra, Bert Bates", is(equalTo(books.getBooks().get(1).getAuthor())));
+        assertThat("2005", is(equalTo(books.getBooks().get(1).getYearPublished())));
 
-        assertThat(3, is(equalTo(listOfBooks.getBooks().get(2).getCode())));
-        assertThat("Test-driven Development", is(equalTo(listOfBooks.getBooks().get(2).getTitle())));
-        assertThat("Kent Beck", is(equalTo(listOfBooks.getBooks().get(2).getAuthor())));
-        assertThat("2003", is(equalTo(listOfBooks.getBooks().get(2).getYearPublished())));
+        assertThat(3, is(equalTo(books.getBooks().get(2).getCode())));
+        assertThat("Test-driven Development", is(equalTo(books.getBooks().get(2).getTitle())));
+        assertThat("Kent Beck", is(equalTo(books.getBooks().get(2).getAuthor())));
+        assertThat("2003", is(equalTo(books.getBooks().get(2).getYearPublished())));
 
     }
 
     @Test
     public void getAvailableBooksToCheckoutTest(){
-        List<Book> expectedAvailableBooks = this.getBookList();
-        List<Book> availableBooks = Books.getAvailableBooksToCheckout(expectedAvailableBooks);
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(this.getBookList());
 
         assertThat(availableBooks.size(), is(2));
 
@@ -51,8 +50,7 @@ public class BooksTest {
 
     @Test
     public void getAvailableBooksToReturnTest(){
-        List<Book> expectedAvailableBooks = this.getBookList();
-        List<Book> availableBooks = Books.getAvailableBooksToReturn(expectedAvailableBooks);
+        List<Book> availableBooks = Books.getAvailableBooksToReturn(this.getBookList());
 
         assertThat(availableBooks.size(), is(2));
 

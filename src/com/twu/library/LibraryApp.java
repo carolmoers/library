@@ -54,48 +54,44 @@ public class LibraryApp {
     }
 
     private static void showBooksLibrary(){
-        List<Book> predefinedBooks = books;
-        showInfoBooks(Books.getAvailableBooksToCheckout(predefinedBooks));
+        showInfoBooks(Books.getAvailableBooksToCheckout(books));
     }
 
     private static void showBooksCheckout(){
-        List<Book> booksToCheckout = books;
-
-        List<Book> availableBooks = Books.getAvailableBooksToCheckout(booksToCheckout);
+        List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
         showInfoBooks(Books.getAvailableBooksToCheckout(availableBooks));
 
         Message message = new Message();
         Scanner input = new Scanner(System.in);
         System.out.print(message.showInputDataMessageCheckoutBook());
-        int bookChoose = input.nextInt();
+        int code = input.nextInt();
         Book book = new Book();
 
-        String resultCheckout = book.checkOutBookByAvailable(availableBooks, bookChoose);
+        String resultCheckout = book.checkOutBookByAvailable(availableBooks, code);
         System.out.println(resultCheckout);
     }
 
     private static void showBooksToReturn(){
-        List<Book> booksLibrary = books;
-        showInfoBooks(Books.getAvailableBooksToReturn(booksLibrary));
+        showInfoBooks(Books.getAvailableBooksToReturn(books));
 
         Message message = new Message();
         Scanner input = new Scanner(System.in);
         System.out.print(message.showInputDataMessageReturnBook());
-        int bookChoose = input.nextInt();
+        int code = input.nextInt();
         Book book = new Book();
 
-        String resultCheckout = book.returnBookToLibrary(booksLibrary, bookChoose);
+        String resultCheckout = book.returnBookToLibrary(books, code);
         System.out.println(resultCheckout);
     }
 
-    private static void showInfoBooks(List<Book> booksToShow){
+    private static void showInfoBooks(List<Book> books){
         String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s |%n";
 
         System.out.format("+------+---------------------------+---------------------------+-------+%n");
         System.out.printf("| Code | Title                     | Author                    | Year  |%n");
         System.out.format("+------+---------------------------+---------------------------+-------+%n");
 
-        for(Book book : booksToShow){
+        for(Book book : books){
             System.out.format(leftAlignFormat, book.getCode(), book.getTitle(), book.getAuthor(), book.getYearPublished());
         }
         System.out.format("+------+---------------------------+---------------------------+-------+%n");
