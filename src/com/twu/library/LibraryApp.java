@@ -67,7 +67,7 @@ public class LibraryApp {
         int code = input.nextInt();
         Book book = new Book();
 
-        String resultCheckout = book.checkOutBookByAvailable(availableBooks, code);
+        String resultCheckout = book.checkoutBookFor(code, availableBooks);
         System.out.println(resultCheckout);
     }
 
@@ -80,7 +80,7 @@ public class LibraryApp {
         int code = input.nextInt();
         Book book = new Book();
 
-        String resultCheckout = book.returnBookToLibrary(books, code);
+        String resultCheckout = book.returnBookToLibraryFor(code, books);
         System.out.println(resultCheckout);
     }
 

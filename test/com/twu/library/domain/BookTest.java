@@ -32,7 +32,7 @@ public class BookTest {
 
         Book book = new Book();
         int code = 1;
-        String returnCheckout = book.checkOutBookByAvailable(books,code);
+        String returnCheckout = book.checkoutBookFor(code, books);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the book.")));
     }
@@ -43,7 +43,7 @@ public class BookTest {
 
         Book book = new Book();
         int code = 4;
-        String returnCheckout = book.checkOutBookByAvailable(books, code);
+        String returnCheckout = book.checkoutBookFor(code, books);
 
         assertThat(returnCheckout, is(equalTo("That book is not available.")));
     }
@@ -54,7 +54,7 @@ public class BookTest {
 
         Book book = new Book();
         int code = 2;
-        String returnBook = book.returnBookToLibrary(books, code);
+        String returnBook = book.returnBookToLibraryFor(code, books);
 
         assertThat(returnBook, is(equalTo("Thank you for returning the book.")));
     }
@@ -65,7 +65,7 @@ public class BookTest {
 
         Book book = new Book();
         int code = 3;
-        String returnBook = book.returnBookToLibrary(books, code);
+        String returnBook = book.returnBookToLibraryFor(code, books);
 
         assertThat(returnBook, is(equalTo("That is not a valid book to return.")));
     }

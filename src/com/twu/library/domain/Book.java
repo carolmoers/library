@@ -45,7 +45,7 @@ public class Book {
         this.checkOut = checkOut;
     }
 
-    public String checkOutBookByAvailable(List<Book> books, Integer code) {
+    public String checkoutBookFor(Integer code, List<Book> books) {
         List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
         try{
             for (Book book : availableBooks) {
@@ -60,7 +60,7 @@ public class Book {
         return "That book is not available.";
     }
 
-    public String returnBookToLibrary(List<Book> books, Integer code) {
+    public String returnBookToLibraryFor(Integer code, List<Book> books) {
         try{
             for(Book book : books){
                 if(code.equals(book.getCode()) && book.isCheckOut()){
