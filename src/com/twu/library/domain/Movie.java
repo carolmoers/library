@@ -17,6 +17,7 @@ public class Movie {
     }
 
     public Movie(Integer code, String name, String year, String director, Integer rating, boolean checkout) {
+        validateRating(rating);
         this.code = code;
         this.name = name;
         this.year = year;
@@ -71,5 +72,11 @@ public class Movie {
             throw new IllegalArgumentException();
         }
         return Message.UNSUCCESSFUL_MOVIE_CHECKOUT;
+    }
+
+    private void validateRating(Integer rating){
+        if(rating != null && (rating < 1 || rating > 10)){
+            throw new IllegalArgumentException("Ops, some movie have a invalid rating. Please, check this :)");
+        }
     }
 }

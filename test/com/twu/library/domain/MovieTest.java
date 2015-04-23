@@ -46,6 +46,18 @@ public class MovieTest {
         assertThat(movie.getRating(), is(equalTo("Unrated")));
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void createMovieWithInvalidRating(){
+        int code = 1;
+        String name = "Test Movie";
+        String director = "Test Director";
+        String year = "2011";
+        Integer rating = 11;
+        boolean checkout = false;
+
+        new Movie(code,name,year,director,rating,checkout);
+    }
+
     @Test
     public void checkoutMovieForTest(){
         List<Movie> movies = this.getMovies();
