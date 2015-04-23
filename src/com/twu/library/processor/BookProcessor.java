@@ -10,12 +10,6 @@ import java.util.Scanner;
 
 public class BookProcessor {
 
-    public Integer getInputData(String message){
-        Scanner input = new Scanner(System.in);
-        System.out.print(message);
-        return input.nextInt();
-    }
-
     public void showBooksLibrary(List<Book> books){
         showBookDetails(Books.getAvailableBooksToCheckout(books));
     }
@@ -23,7 +17,8 @@ public class BookProcessor {
     public void showBooksToCheckout(String message, List<Book> books){
         try{
             showBookDetails(books);
-            Integer code = getInputData(message);
+            MainProcessor mainProcessor = new MainProcessor();
+            Integer code = mainProcessor.getInputData(message);
             String resultCheckout = Book.checkoutBookFor(code, books);
             System.out.println(resultCheckout);
         } catch (InputMismatchException ex) {
@@ -34,7 +29,8 @@ public class BookProcessor {
     public void showBooksToReturn(String message, List<Book> books){
         try{
             showBookDetails(books);
-            Integer code = getInputData(message);
+            MainProcessor mainProcessor = new MainProcessor();
+            Integer code = mainProcessor.getInputData(message);
             String resultCheckout = Book.returnBookToLibraryFor(code, books);
             System.out.println(resultCheckout);
         } catch (InputMismatchException ex) {
