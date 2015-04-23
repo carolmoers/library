@@ -12,7 +12,8 @@ public class MainMenu {
         menuOptions.append("|         2 - Checkout Books      |\n");
         menuOptions.append("|         3 - Return Books        |\n");
         menuOptions.append("|         4 - List Movies         |\n");
-        menuOptions.append("|         5 - Quit                |\n");
+        menuOptions.append("|         5 - Checkout Movies     |\n");
+        menuOptions.append("|         6 - Quit                |\n");
         menuOptions.append("+---------------------------------+");
 
         return menuOptions.toString();

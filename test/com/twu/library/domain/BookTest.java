@@ -17,9 +17,9 @@ public class BookTest {
         String title = "Test Title";
         String author = "Test Author";
         String yearPublished = "2011";
-        boolean checkOut = false;
+        boolean checkout = false;
 
-        Book book = new Book(code, title, author, yearPublished, checkOut);
+        Book book = new Book(code, title, author, yearPublished, checkout);
 
         assertThat(book.getCode(), is(equalTo(code)));
         assertThat(book.getAuthor(), is(equalTo(author)));

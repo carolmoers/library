@@ -21,7 +21,8 @@ public class MainMenuTest {
         expectedResult.append("|         2 - Checkout Books      |\n");
         expectedResult.append("|         3 - Return Books        |\n");
         expectedResult.append("|         4 - List Movies         |\n");
-        expectedResult.append("|         5 - Quit                |\n");
+        expectedResult.append("|         5 - Checkout Movies     |\n");
+        expectedResult.append("|         6 - Quit                |\n");
         expectedResult.append("+---------------------------------+");
 
         assertThat(result, is(equalTo(expectedResult.toString())));

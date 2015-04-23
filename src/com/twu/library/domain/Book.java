@@ -53,14 +53,14 @@ public class Book {
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckout(true);
-                    return Message.SUCCESSFUL_CHECKOUT;
+                    return Message.SUCCESSFUL_BOOK_CHECKOUT;
                 }
             }
         }catch(Exception ex){
             System.out.println(Message.ERROR + ex.getMessage());
             throw new IllegalArgumentException();
         }
-        return Message.UNSUCCESSFUL_CHECKOUT;
+        return Message.UNSUCCESSFUL_BOOK_CHECKOUT;
     }
 
     public static String returnBookToLibraryFor(Integer code, List<Book> books) {
@@ -68,13 +68,13 @@ public class Book {
             for(Book book : books){
                 if(code.equals(book.getCode()) && book.isCheckout()){
                     book.setCheckout(false);
-                    return  Message.SUCCESSFUL_RETURN;
+                    return  Message.SUCCESSFUL_BOOK_RETURN;
                 }
             }
         }catch (Exception ex){
             System.out.println(Message.ERROR + ex.getMessage());
             throw new IllegalArgumentException();
         }
-        return Message.UNSUCCESSFUL_RETURN;
+        return Message.UNSUCCESSFUL_BOOK_RETURN;
     }
 }
