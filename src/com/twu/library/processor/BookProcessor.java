@@ -17,10 +17,12 @@ public class BookProcessor {
     public void showBooksToCheckout(String message, List<Book> books){
         try{
             showBookDetails(books);
-            MainProcessor mainProcessor = new MainProcessor();
-            Integer code = mainProcessor.getInputData(message);
-            String resultCheckout = Book.checkoutBookFor(code, books);
-            System.out.println(resultCheckout);
+            if(!books.isEmpty()) {
+                MainProcessor mainProcessor = new MainProcessor();
+                Integer code = mainProcessor.getInputData(message);
+                String resultCheckout = Book.checkoutBookFor(code, books);
+                System.out.println(resultCheckout);
+            }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);
         }
@@ -29,10 +31,12 @@ public class BookProcessor {
     public void showBooksToReturn(String message, List<Book> books){
         try{
             showBookDetails(books);
-            MainProcessor mainProcessor = new MainProcessor();
-            Integer code = mainProcessor.getInputData(message);
-            String resultCheckout = Book.returnBookToLibraryFor(code, books);
-            System.out.println(resultCheckout);
+            if(!books.isEmpty()) {
+                MainProcessor mainProcessor = new MainProcessor();
+                Integer code = mainProcessor.getInputData(message);
+                String resultCheckout = Book.returnBookToLibraryFor(code, books);
+                System.out.println(resultCheckout);
+            }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);
         }

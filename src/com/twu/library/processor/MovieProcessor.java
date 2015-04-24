@@ -16,10 +16,12 @@ public class MovieProcessor {
     public void showMoviesToCheckout(String message, List<Movie> movies) {
         try{
             showMovieDetails(movies);
-            MainProcessor mainProcessor = new MainProcessor();
-            Integer code = mainProcessor.getInputData(message);
-            String resultCheckout = Movie.checkoutMovieFor(code, movies);
-            System.out.println(resultCheckout);
+            if(!movies.isEmpty()) {
+                MainProcessor mainProcessor = new MainProcessor();
+                Integer code = mainProcessor.getInputData(message);
+                String resultCheckout = Movie.checkoutMovieFor(code, movies);
+                System.out.println(resultCheckout);
+            }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);
         }
@@ -28,10 +30,12 @@ public class MovieProcessor {
     public void showMoviesToReturn(String message, List<Movie> movies) {
         try{
             showMovieDetails(movies);
-            MainProcessor mainProcessor = new MainProcessor();
-            Integer code = mainProcessor.getInputData(message);
-            String resultCheckout = Movie.returnMovieToLibraryFor(code, movies);
-            System.out.println(resultCheckout);
+            if(!movies.isEmpty()) {
+                MainProcessor mainProcessor = new MainProcessor();
+                Integer code = mainProcessor.getInputData(message);
+                String resultCheckout = Movie.returnMovieToLibraryFor(code, movies);
+                System.out.println(resultCheckout);
+            }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);
         }

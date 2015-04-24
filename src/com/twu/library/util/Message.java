@@ -18,4 +18,7 @@ public class Message {
     public final static String UNSUCCESSFUL_MOVIE_CHECKOUT = "The movie is not available.";
     public final static String SUCCESSFUL_MOVIE_RETURN = "Thank you for returning the movie.";
     public final static String UNSUCCESSFUL_MOVIE_RETURN = "It is not a valid movie to return.";
+    public final static String INVALID_RATING = "Ops, some movie has a invalid rating.";
+    public final static String INVALID_LIBRARY_NUMBER = "Ops, some user has a invalid library number.";
+    public final static String INVALID_PHONE_NUMBER = "Ops, some user has a invalid phone number.";
 }

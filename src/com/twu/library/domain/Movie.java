@@ -43,11 +43,7 @@ public class Movie {
     }
 
     public String getRating() {
-        if(this.rating == null){
-            return "Unrated";
-        }else{
-            return this.rating.toString();
-        }
+        return this.rating == null ? "Unrated" : this.rating.toString() ;
     }
 
     public boolean isCheckout() {
@@ -74,12 +70,6 @@ public class Movie {
         return Message.UNSUCCESSFUL_MOVIE_CHECKOUT;
     }
 
-    private void validateRating(Integer rating){
-        if(rating != null && (rating < 1 || rating > 10)){
-            throw new IllegalArgumentException("Ops, some movie have a invalid rating. Please, check this :)");
-        }
-    }
-
     public static String returnMovieToLibraryFor(Integer code, List<Movie> movies) {
         try{
             for(Movie movie : movies){
@@ -93,5 +83,11 @@ public class Movie {
             throw new IllegalArgumentException();
         }
         return Message.UNSUCCESSFUL_MOVIE_RETURN;
+    }
+
+    private void validateRating(Integer rating){
+        if(rating != null && (rating < 1 || rating > 10)){
+            throw new IllegalArgumentException(Message.INVALID_RATING);
+        }
     }
 }
