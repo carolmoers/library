@@ -52,6 +52,18 @@ public class MoviesTest {
         assertThat("7", is(equalTo(availableMovies.get(1).getRating())));
     }
 
+
+    @Test
+    public void getAvailableMoviesToReturnTest(){
+        List<Movie> availableMovies = Movies.getAvailableMoviesToReturn(this.getMovies());
+
+        assertThat(availableMovies.size(), is(1));
+
+        assertThat("Movie2", is(equalTo(availableMovies.get(0).getName())));
+        assertThat("Director2", is(equalTo(availableMovies.get(0).getDirector())));
+        assertThat("2012", is(equalTo(availableMovies.get(0).getYear())));
+        assertThat("Unrated", is(equalTo(availableMovies.get(0).getRating())));
+    }
     private List<Movie> getMovies(){
         Movies listOfMovies = new Movies();
         List<Movie> movies = listOfMovies.getMovies();

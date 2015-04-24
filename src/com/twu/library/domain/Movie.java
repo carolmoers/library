@@ -79,4 +79,19 @@ public class Movie {
             throw new IllegalArgumentException("Ops, some movie have a invalid rating. Please, check this :)");
         }
     }
+
+    public static String returnMovieToLibraryFor(Integer code, List<Movie> movies) {
+        try{
+            for(Movie movie : movies){
+                if(code.equals(movie.getCode()) && movie.isCheckout()){
+                    movie.setCheckout(false);
+                    return  Message.SUCCESSFUL_MOVIE_RETURN;
+                }
+            }
+        }catch (Exception ex){
+            System.out.println(Message.ERROR + ex.getMessage());
+            throw new IllegalArgumentException();
+        }
+        return Message.UNSUCCESSFUL_MOVIE_RETURN;
+    }
 }

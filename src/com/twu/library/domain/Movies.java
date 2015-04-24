@@ -35,4 +35,15 @@ public class Movies {
         }
         return availableMovies;
     }
+
+    public static List<Movie> getAvailableMoviesToReturn(List<Movie> movies) {
+        List<Movie> availableMovies = new ArrayList<Movie>();
+
+        for(Movie movie : movies){
+            if(movie.isCheckout()){
+                availableMovies.add(movie);
+            }
+        }
+        return availableMovies;
+    }
 }

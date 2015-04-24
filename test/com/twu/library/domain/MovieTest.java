@@ -87,6 +87,35 @@ public class MovieTest {
         movie.checkoutMovieFor(code, null);
     }
 
+    @Test
+    public void returnMovieTest(){
+        List<Movie> movies = this.getMovies();
+
+        Movie movie = new Movie();
+        int code = 2;
+        String returnMovie = movie.returnMovieToLibraryFor(code, movies);
+
+        assertThat(returnMovie, is(equalTo("Thank you for returning the movie.")));
+    }
+
+    @Test
+    public void returnMovieThatIsAlreadyInLibraryTest(){
+        List<Movie> movies = this.getMovies();
+
+        Movie movie = new Movie();
+        int code = 3;
+        String returnMovie = movie.returnMovieToLibraryFor(code, movies);
+
+        assertThat(returnMovie, is(equalTo("It is not a valid movie to return.")));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void returnMovieThrowExceptionTest(){
+        Movie movie = new Movie();
+        int code = 3;
+        movie.returnMovieToLibraryFor(code, null);
+    }
+
     private List<Movie> getMovies(){
         Movies listOfMovies = new Movies();
         List<Movie> movies = listOfMovies.getMovies();

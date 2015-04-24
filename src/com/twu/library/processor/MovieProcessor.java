@@ -25,6 +25,18 @@ public class MovieProcessor {
         }
     }
 
+    public void showMoviesToReturn(String message, List<Movie> movies) {
+        try{
+            showMovieDetails(movies);
+            MainProcessor mainProcessor = new MainProcessor();
+            Integer code = mainProcessor.getInputData(message);
+            String resultCheckout = Movie.returnMovieToLibraryFor(code, movies);
+            System.out.println(resultCheckout);
+        } catch (InputMismatchException ex) {
+            System.out.println(Message.INVALID_INPUT);
+        }
+    }
+
     private void showMovieDetails(List<Movie> movies){
         if(!movies.isEmpty()) {
             String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s | %-8s |%n";

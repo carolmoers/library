@@ -58,6 +58,9 @@ public class LibraryApp {
                         movieProcessor.showMoviesToCheckout(Message.CHECKOUT_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToCheckout(movies));
                         break;
                     case 6:
+                        movieProcessor.showMoviesToReturn(Message.RETURN_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToReturn(movies));
+                        break;
+                    case 7:
                         keepRunning = false;
                         System.out.close();
                         break;
