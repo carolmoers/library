@@ -69,7 +69,7 @@ public class MovieProcessor {
             System.out.format("+------+--------------------------------+---------------------------+-------+----------+--------------------------------+%n");
 
             for (Movie movie : movies) {
-                System.out.format(leftAlignFormat, movie.getCode(), movie.getName(), movie.getDirector(), movie.getYear(), movie.getRating(), movie.getUserWhoHasCheckedOut());
+                System.out.format(leftAlignFormat, movie.getCode(), movie.getName(), movie.getDirector(), movie.getYear(), movie.getRating(), movie.getUserWhoHasCheckedOut().getName());
             }
             System.out.format("+------+--------------------------------+---------------------------+-------+----------+--------------------------------+%n");
         }else{

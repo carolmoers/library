@@ -2,7 +2,6 @@ package com.twu.library.domain;
 
 import org.junit.Test;
 
-import java.util.InputMismatchException;
 import java.util.List;
 
 import static org.hamcrest.core.Is.is;
@@ -18,7 +17,7 @@ public class BookTest {
         String author = "Test Author";
         String yearPublished = "2011";
         boolean checkout = false;
-        String userThatDoCheckout = null;
+        User userThatDoCheckout = null;
 
         Book book = new Book(code, title, author, yearPublished, checkout, userThatDoCheckout);
 

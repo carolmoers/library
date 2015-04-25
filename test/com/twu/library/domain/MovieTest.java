@@ -18,7 +18,7 @@ public class MovieTest {
         String year = "2011";
         Integer rating = 10;
         boolean checkout = false;
-        String userWhoHasCheckedOut = "User1";
+        User userWhoHasCheckedOut = new User();
 
         Movie movie = new Movie(code,name,year,director,rating,checkout, userWhoHasCheckedOut);
 
@@ -38,7 +38,7 @@ public class MovieTest {
         String year = "2011";
         Integer rating = null;
         boolean checkout = false;
-        String userWhoHasCheckedOut = "User1";
+        User userWhoHasCheckedOut = new User();
 
         Movie movie = new Movie(code,name,year,director,rating,checkout, userWhoHasCheckedOut);
 
@@ -58,7 +58,7 @@ public class MovieTest {
         String year = "2011";
         Integer rating = 11;
         boolean checkout = false;
-        String userWhoHasCheckedOut = "User1";
+        User userWhoHasCheckedOut = new User();
 
         new Movie(code,name,year,director,rating,checkout,userWhoHasCheckedOut);
     }
@@ -69,9 +69,8 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 1;
-        User user = new User();
-
-        String returnCheckout = movie.checkoutMovieFor(code, movies, user);
+        User userWhoHasCheckedOut = new User("111-1111","123456","Steven Universe", "esteven@universe.com", "3218-4675");
+        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the movie.")));
     }
@@ -82,9 +81,8 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 4;
-        User user = new User();
-
-        String returnCheckout = movie.checkoutMovieFor(code, movies, user);
+        User userWhoHasCheckedOut = new User("111-1111","123456","Steven Universe", "esteven@universe.com", "3218-4675");
+        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("The movie is not available.")));
     }

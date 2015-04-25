@@ -10,13 +10,13 @@ public class Book {
     private String author;
     private String yearPublished;
     private boolean checkout;
-    private String userWhoHasCheckedOut;
+    private User userWhoHasCheckedOut;
 
     public Book(){
 
     }
 
-    public Book(Integer code, String title, String author, String yearPublished, boolean checkout, String userWhoHasCheckedOut) {
+    public Book(Integer code, String title, String author, String yearPublished, boolean checkout, User userWhoHasCheckedOut) {
         this.code = code;
         this.title = title;
         this.author = author;
@@ -41,7 +41,7 @@ public class Book {
         return this.yearPublished;
     }
 
-    public String getUserWhoHasCheckedOut() {
+    public User getUserWhoHasCheckedOut() {
         return this.userWhoHasCheckedOut;
     }
 
@@ -53,7 +53,7 @@ public class Book {
         this.checkout = checkout;
     }
 
-    public void setUserWhoHasCheckedOut(String userWhoHasCheckedOut) {
+    public void setUserWhoHasCheckedOut(User userWhoHasCheckedOut) {
         this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
@@ -63,7 +63,7 @@ public class Book {
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckout(true);
-                    book.setUserWhoHasCheckedOut(user.getName());
+                    book.setUserWhoHasCheckedOut(user);
                     return Message.SUCCESSFUL_BOOK_CHECKOUT;
                 }
             }

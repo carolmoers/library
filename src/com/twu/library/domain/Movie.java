@@ -11,13 +11,13 @@ public class Movie {
     private String director;
     private Integer rating;
     private boolean checkout;
-    private String userWhoHasCheckedOut;
+    private User userWhoHasCheckedOut;
 
     public Movie(){
 
     }
 
-    public Movie(Integer code, String name, String year, String director, Integer rating, boolean checkout, String userWhoHasCheckedOut) {
+    public Movie(Integer code, String name, String year, String director, Integer rating, boolean checkout, User userWhoHasCheckedOut) {
         validateRating(rating);
         this.code = code;
         this.name = name;
@@ -48,7 +48,7 @@ public class Movie {
         return this.rating == null ? "Unrated" : this.rating.toString() ;
     }
 
-    public String getUserWhoHasCheckedOut() {
+    public User getUserWhoHasCheckedOut() {
         return this.userWhoHasCheckedOut;
     }
 
@@ -60,7 +60,7 @@ public class Movie {
         this.checkout = checkout;
     }
 
-    public void setUserWhoHasCheckedOut(String userWhoHasCheckedOut) {
+    public void setUserWhoHasCheckedOut(User userWhoHasCheckedOut) {
         this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
@@ -70,7 +70,7 @@ public class Movie {
             for (Movie movie : availableMovies) {
                 if (code.equals(movie.getCode())) {
                     movie.setCheckout(true);
-                    movie.setUserWhoHasCheckedOut(user.getName());
+                    movie.setUserWhoHasCheckedOut(user);
                     return Message.SUCCESSFUL_MOVIE_CHECKOUT;
                 }
             }

@@ -70,7 +70,7 @@ public class BookProcessor {
             System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
 
             for (Book book : books) {
-                System.out.format(leftAlignFormat, book.getCode(), book.getTitle(), book.getAuthor(), book.getYearPublished(), book.getUserWhoHasCheckedOut());
+                System.out.format(leftAlignFormat, book.getCode(), book.getTitle(), book.getAuthor(), book.getYearPublished(), book.getUserWhoHasCheckedOut().getName());
             }
             System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
         }else{
