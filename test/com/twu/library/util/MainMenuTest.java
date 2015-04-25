@@ -23,7 +23,8 @@ public class MainMenuTest {
         expectedResult.append("|         4 - List Movies         |\n");
         expectedResult.append("|         5 - Checkout Movies     |\n");
         expectedResult.append("|         6 - Return Movies       |\n");
-        expectedResult.append("|         7 - Quit                |\n");
+        expectedResult.append("|         7 - User Information    |\n");
+        expectedResult.append("|         8 - Quit                |\n");
         expectedResult.append("+---------------------------------+");
 
         assertThat(result, is(equalTo(expectedResult.toString())));

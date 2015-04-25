@@ -1,10 +1,7 @@
 package com.twu.library;
 
 import com.twu.library.domain.*;
-import com.twu.library.processor.BookProcessor;
-import com.twu.library.processor.LoginProcessor;
-import com.twu.library.processor.MainProcessor;
-import com.twu.library.processor.MovieProcessor;
+import com.twu.library.processor.*;
 import com.twu.library.util.MainMenu;
 import com.twu.library.util.Message;
 
@@ -14,9 +11,10 @@ public class LibraryApp {
     private static boolean keepRunning = true;
     private static List<Book> books;
     private static List<Movie> movies;
+    private static User user;
 
     public static void main(String[] args) {
-        User user = LoginProcessor.loginApp();
+        user = LoginProcessor.loginApp();
 
         if(!user.getName().isEmpty()) {
             Books listOfBooks = new Books();
@@ -39,6 +37,7 @@ public class LibraryApp {
 
                 BookProcessor bookProcessor = new BookProcessor();
                 MovieProcessor movieProcessor = new MovieProcessor();
+                UserProcessor userProcessor = new UserProcessor();
 
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer optionChoose = mainProcessor.getInputDataInteger(Message.MAIN_MENU_INPUT_DATA);
@@ -63,6 +62,9 @@ public class LibraryApp {
                         movieProcessor.showMoviesToReturn(Message.RETURN_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToReturn(movies));
                         break;
                     case 7:
+                        userProcessor.showUserInformation(user);
+                        break;
+                    case 8:
                         keepRunning = false;
                         System.out.close();
                         break;

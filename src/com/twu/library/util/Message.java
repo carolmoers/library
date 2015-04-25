@@ -1,7 +1,7 @@
 package com.twu.library.util;
 
 public class Message {
-    public final static String MAIN_MENU_INPUT_DATA = "\nWhat you would like to do (1-7)? ";
+    public final static String MAIN_MENU_INPUT_DATA = "\nWhat you would like to do (1-8)? ";
     public final static String CHECKOUT_BOOK_INPUT_DATA = "What book would you like to checkout (choose a number)? ";
     public final static String RETURN_BOOK_INPUT_DATA = "What book would you like to return (choose a number)? ";
     public final static String INVALID_OPTION = "Select a valid option!";
