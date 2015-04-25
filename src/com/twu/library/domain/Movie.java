@@ -11,12 +11,13 @@ public class Movie {
     private String director;
     private Integer rating;
     private boolean checkout;
+    private String userWhoHasCheckedOut;
 
     public Movie(){
 
     }
 
-    public Movie(Integer code, String name, String year, String director, Integer rating, boolean checkout) {
+    public Movie(Integer code, String name, String year, String director, Integer rating, boolean checkout, String userWhoHasCheckedOut) {
         validateRating(rating);
         this.code = code;
         this.name = name;
@@ -24,6 +25,7 @@ public class Movie {
         this.director = director;
         this.rating = rating;
         this.checkout = checkout;
+        this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
     public Integer getCode() {
@@ -46,6 +48,10 @@ public class Movie {
         return this.rating == null ? "Unrated" : this.rating.toString() ;
     }
 
+    public String getUserWhoHasCheckedOut() {
+        return this.userWhoHasCheckedOut;
+    }
+
     public boolean isCheckout() {
         return checkout;
     }
@@ -54,12 +60,17 @@ public class Movie {
         this.checkout = checkout;
     }
 
-    public static String checkoutMovieFor(Integer code, List<Movie> movies) {
+    public void setUserWhoHasCheckedOut(String userWhoHasCheckedOut) {
+        this.userWhoHasCheckedOut = userWhoHasCheckedOut;
+    }
+
+    public static String checkoutMovieFor(Integer code, List<Movie> movies, String userWhoHasCheckedOut) {
         try{
             List<Movie> availableMovies = Movies.getAvailableMoviesToCheckout(movies);
             for (Movie movie : availableMovies) {
                 if (code.equals(movie.getCode())) {
                     movie.setCheckout(true);
+                    movie.setUserWhoHasCheckedOut(userWhoHasCheckedOut);
                     return Message.SUCCESSFUL_MOVIE_CHECKOUT;
                 }
             }
@@ -75,6 +86,7 @@ public class Movie {
             for(Movie movie : movies){
                 if(code.equals(movie.getCode()) && movie.isCheckout()){
                     movie.setCheckout(false);
+                    movie.setUserWhoHasCheckedOut(null);
                     return  Message.SUCCESSFUL_MOVIE_RETURN;
                 }
             }

@@ -47,7 +47,7 @@ public class LibraryApp {
                         bookProcessor.showBooksLibrary(books);
                         break;
                     case 2:
-                        bookProcessor.showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books));
+                        bookProcessor.showBooksToCheckout(Message.CHECKOUT_BOOK_INPUT_DATA, Books.getAvailableBooksToCheckout(books), user);
                         break;
                     case 3:
                         bookProcessor.showBooksToReturn(Message.RETURN_BOOK_INPUT_DATA, Books.getAvailableBooksToReturn(books));
@@ -56,7 +56,7 @@ public class LibraryApp {
                         movieProcessor.showMoviesLibrary(movies);
                         break;
                     case 5:
-                        movieProcessor.showMoviesToCheckout(Message.CHECKOUT_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToCheckout(movies));
+                        movieProcessor.showMoviesToCheckout(Message.CHECKOUT_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToCheckout(movies), user);
                         break;
                     case 6:
                         movieProcessor.showMoviesToReturn(Message.RETURN_MOVIE_INPUT_DATA, Movies.getAvailableMoviesToReturn(movies));

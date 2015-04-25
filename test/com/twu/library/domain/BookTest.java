@@ -18,8 +18,9 @@ public class BookTest {
         String author = "Test Author";
         String yearPublished = "2011";
         boolean checkout = false;
+        String userThatDoCheckout = null;
 
-        Book book = new Book(code, title, author, yearPublished, checkout);
+        Book book = new Book(code, title, author, yearPublished, checkout, userThatDoCheckout);
 
         assertThat(book.getCode(), is(equalTo(code)));
         assertThat(book.getAuthor(), is(equalTo(author)));
@@ -33,7 +34,8 @@ public class BookTest {
 
         Book book = new Book();
         int code = 1;
-        String returnCheckout = book.checkoutBookFor(code, books);
+        String userWhoHasCheckedOut = "User Test";
+        String returnCheckout = book.checkoutBookFor(code, books, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the book.")));
     }
@@ -44,7 +46,8 @@ public class BookTest {
 
         Book book = new Book();
         int code = 4;
-        String returnCheckout = book.checkoutBookFor(code, books);
+        String userWhoHasCheckedOut = "User Test";
+        String returnCheckout = book.checkoutBookFor(code, books, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("The book is not available.")));
     }
@@ -53,7 +56,7 @@ public class BookTest {
     public void checkoutBookThrowExceptionTest(){
         Book book = new Book();
         int code = 4;
-        book.checkoutBookFor(code, null);
+        book.checkoutBookFor(code, null, null);
     }
 
     @Test
@@ -89,13 +92,13 @@ public class BookTest {
         Books listOfBooks = new Books();
         List<Book> books = listOfBooks.getBooks();
 
-        Book firstBook = new Book(1, "Title1", "Author1", "2011", false);
+        Book firstBook = new Book(1, "Title1", "Author1", "2011", false, null);
         books.add(firstBook);
-        Book secondBook = new Book(2, "Title2", "Author2", "2012", true);
+        Book secondBook = new Book(2, "Title2", "Author2", "2012", true, null);
         books.add(secondBook);
-        Book thirdBook = new Book(3, "Title3", "Author3", "1983", false);
+        Book thirdBook = new Book(3, "Title3", "Author3", "1983", false, null);
         books.add(thirdBook);
-        Book fourthBook = new Book(4, "Title4", "Author4", "2014", true);
+        Book fourthBook = new Book(4, "Title4", "Author4", "2014", true, null);
         books.add(fourthBook);
 
         return books;

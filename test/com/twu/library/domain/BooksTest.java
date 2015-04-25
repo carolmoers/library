@@ -65,13 +65,13 @@ public class BooksTest {
         Books listOfBooks = new Books();
         List<Book> books = listOfBooks.getBooks();
 
-        Book firstBook = new Book(1, "Title1", "Author1", "2011", false);
+        Book firstBook = new Book(1, "Title1", "Author1", "2011", false, null);
         books.add(firstBook);
-        Book secondBook = new Book(2, "Title2", "Author2", "2012", true);
+        Book secondBook = new Book(2, "Title2", "Author2", "2012", true, null);
         books.add(secondBook);
-        Book thirdBook = new Book(3, "Title3", "Author3", "1983", false);
+        Book thirdBook = new Book(3, "Title3", "Author3", "1983", false, null);
         books.add(thirdBook);
-        Book fourthBook = new Book(4, "Title4", "Author4", "2014", true);
+        Book fourthBook = new Book(4, "Title4", "Author4", "2014", true, null);
         books.add(fourthBook);
 
         return books;

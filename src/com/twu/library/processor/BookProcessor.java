@@ -2,6 +2,7 @@ package com.twu.library.processor;
 
 import com.twu.library.domain.Book;
 import com.twu.library.domain.Books;
+import com.twu.library.domain.User;
 import com.twu.library.util.Message;
 
 import java.util.InputMismatchException;
@@ -13,13 +14,13 @@ public class BookProcessor {
         showBookDetails(Books.getAvailableBooksToCheckout(books));
     }
 
-    public void showBooksToCheckout(String message, List<Book> books){
+    public void showBooksToCheckout(String message, List<Book> books, User user){
         try{
             showBookDetails(books);
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
-                String resultCheckout = Book.checkoutBookFor(code, books);
+                String resultCheckout = Book.checkoutBookFor(code, books, user.getName());
                 System.out.println(resultCheckout);
             }
         } catch (InputMismatchException ex) {
@@ -29,7 +30,7 @@ public class BookProcessor {
 
     public void showBooksToReturn(String message, List<Book> books){
         try{
-            showBookDetails(books);
+            showBookToReturnDetails(books);
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
@@ -57,6 +58,25 @@ public class BookProcessor {
             System.out.format("+------+---------------------------+---------------------------+-------+%n");
             System.out.printf("|                    There are no available books                      |%n");
             System.out.format("+------+---------------------------+---------------------------+-------+%n");
+        }
+    }
+
+    private void showBookToReturnDetails(List<Book> books){
+        if(!books.isEmpty()) {
+            String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s | %-30s |%n";
+
+            System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
+            System.out.printf("| Code | Title                     | Author                    | Year  | User Who Checked out           |%n");
+            System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
+
+            for (Book book : books) {
+                System.out.format(leftAlignFormat, book.getCode(), book.getTitle(), book.getAuthor(), book.getYearPublished(), book.getUserWhoHasCheckedOut());
+            }
+            System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
+        }else{
+            System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
+            System.out.printf("|                                  There are no available books                                         |%n");
+            System.out.format("+------+---------------------------+---------------------------+-------+--------------------------------+%n");
         }
     }
 }

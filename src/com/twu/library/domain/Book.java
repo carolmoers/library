@@ -10,17 +10,19 @@ public class Book {
     private String author;
     private String yearPublished;
     private boolean checkout;
+    private String userWhoHasCheckedOut;
 
     public Book(){
 
     }
 
-    public Book(Integer code, String title, String author, String yearPublished, boolean checkout) {
+    public Book(Integer code, String title, String author, String yearPublished, boolean checkout, String userWhoHasCheckedOut) {
         this.code = code;
         this.title = title;
         this.author = author;
         this.yearPublished = yearPublished;
         this.checkout = checkout;
+        this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
     public int getCode() {
@@ -39,6 +41,10 @@ public class Book {
         return this.yearPublished;
     }
 
+    public String getUserWhoHasCheckedOut() {
+        return this.userWhoHasCheckedOut;
+    }
+
     public boolean isCheckout() {
         return this.checkout;
     }
@@ -47,12 +53,17 @@ public class Book {
         this.checkout = checkout;
     }
 
-    public static String checkoutBookFor(Integer code, List<Book> books) {
+    public void setUserWhoHasCheckedOut(String userWhoHasCheckedOut) {
+        this.userWhoHasCheckedOut = userWhoHasCheckedOut;
+    }
+
+    public static String checkoutBookFor(Integer code, List<Book> books, String userWhoHasCheckedOut) {
         try{
             List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckout(true);
+                    book.setUserWhoHasCheckedOut(userWhoHasCheckedOut);
                     return Message.SUCCESSFUL_BOOK_CHECKOUT;
                 }
             }
@@ -68,6 +79,7 @@ public class Book {
             for(Book book : books){
                 if(code.equals(book.getCode()) && book.isCheckout()){
                     book.setCheckout(false);
+                    book.setUserWhoHasCheckedOut(null);
                     return  Message.SUCCESSFUL_BOOK_RETURN;
                 }
             }

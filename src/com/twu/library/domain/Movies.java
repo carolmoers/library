@@ -15,11 +15,11 @@ public class Movies {
     }
 
     public List<Movie> createPredefinedMovies() {
-        Movie firstMovie = new Movie(1, "TRON", "1982", "Steven Lisberger", null, false);
+        Movie firstMovie = new Movie(1, "TRON", "1982", "Steven Lisberger", null, false, null);
         this.movies.add(firstMovie);
-        Movie secondMovie = new Movie(2, "Scott Pilgrim vs. the World", "2010", "Edgar Wright", 10, false);
+        Movie secondMovie = new Movie(2, "Scott Pilgrim vs. the World", "2010", "Edgar Wright", 10, false, null);
         this.movies.add(secondMovie);
-        Movie thirdMovie = new Movie(3, "Into the Wild", "2007", "Sean Penn", 8, false);
+        Movie thirdMovie = new Movie(3, "Into the Wild", "2007", "Sean Penn", 8, false, null);
         this.movies.add(thirdMovie);
 
         return this.movies;

@@ -18,14 +18,16 @@ public class MovieTest {
         String year = "2011";
         Integer rating = 10;
         boolean checkout = false;
+        String userWhoHasCheckedOut = "User1";
 
-        Movie movie = new Movie(code,name,year,director,rating,checkout);
+        Movie movie = new Movie(code,name,year,director,rating,checkout, userWhoHasCheckedOut);
 
         assertThat(movie.getCode(), is(equalTo(code)));
         assertThat(movie.getName(), is(equalTo(name)));
         assertThat(movie.getDirector(), is(equalTo(director)));
         assertThat(movie.getYear(), is(equalTo(year)));
         assertThat(movie.getRating(), is(equalTo(rating.toString())));
+        assertThat(movie.getUserWhoHasCheckedOut(), is(equalTo(userWhoHasCheckedOut)));
     }
 
     @Test
@@ -36,14 +38,16 @@ public class MovieTest {
         String year = "2011";
         Integer rating = null;
         boolean checkout = false;
+        String userWhoHasCheckedOut = "User1";
 
-        Movie movie = new Movie(code,name,year,director,rating,checkout);
+        Movie movie = new Movie(code,name,year,director,rating,checkout, userWhoHasCheckedOut);
 
         assertThat(movie.getCode(), is(equalTo(code)));
         assertThat(movie.getName(), is(equalTo(name)));
         assertThat(movie.getDirector(), is(equalTo(director)));
         assertThat(movie.getYear(), is(equalTo(year)));
         assertThat(movie.getRating(), is(equalTo("Unrated")));
+        assertThat(movie.getUserWhoHasCheckedOut(), is(equalTo(userWhoHasCheckedOut)));
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -54,8 +58,9 @@ public class MovieTest {
         String year = "2011";
         Integer rating = 11;
         boolean checkout = false;
+        String userWhoHasCheckedOut = "User1";
 
-        new Movie(code,name,year,director,rating,checkout);
+        new Movie(code,name,year,director,rating,checkout,userWhoHasCheckedOut);
     }
 
     @Test
@@ -64,7 +69,9 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 1;
-        String returnCheckout = movie.checkoutMovieFor(code, movies);
+        String userWhoHasCheckedOut = null;
+
+        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the movie.")));
     }
@@ -75,7 +82,9 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 4;
-        String returnCheckout = movie.checkoutMovieFor(code, movies);
+        String userWhoHasCheckedOut = null;
+
+        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
 
         assertThat(returnCheckout, is(equalTo("The movie is not available.")));
     }
@@ -84,7 +93,9 @@ public class MovieTest {
     public void checkoutMovieThrowExceptionTest(){
         Movie movie = new Movie();
         int code = 4;
-        movie.checkoutMovieFor(code, null);
+        String userWhoHasCheckedOut = null;
+
+        movie.checkoutMovieFor(code, null, userWhoHasCheckedOut);
     }
 
     @Test
@@ -120,11 +131,11 @@ public class MovieTest {
         Movies listOfMovies = new Movies();
         List<Movie> movies = listOfMovies.getMovies();
 
-        Movie firstMovie = new Movie(1, "Movie1", "2011", "Director1", 8, false);
+        Movie firstMovie = new Movie(1, "Movie1", "2011", "Director1", 8, false, null);
         movies.add(firstMovie);
-        Movie secondMovie = new Movie(2, "Movie2", "2012", "Director2", null, true);
+        Movie secondMovie = new Movie(2, "Movie2", "2012", "Director2", null, true, null);
         movies.add(secondMovie);
-        Movie thirdMovie = new Movie(3, "Movie3", "1983", "Director3", 7, false);
+        Movie thirdMovie = new Movie(3, "Movie3", "1983", "Director3", 7, false, null);
         movies.add(thirdMovie);
 
         return movies;

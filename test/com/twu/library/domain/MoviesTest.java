@@ -68,11 +68,11 @@ public class MoviesTest {
         Movies listOfMovies = new Movies();
         List<Movie> movies = listOfMovies.getMovies();
 
-        Movie firstMovie = new Movie(1, "Movie1", "2011", "Director1", 8, false);
+        Movie firstMovie = new Movie(1, "Movie1", "2011", "Director1", 8, false, null);
         movies.add(firstMovie);
-        Movie secondMovie = new Movie(2, "Movie2", "2012", "Director2", null, true);
+        Movie secondMovie = new Movie(2, "Movie2", "2012", "Director2", null, true, null);
         movies.add(secondMovie);
-        Movie thirdMovie = new Movie(3, "Movie3", "1983", "Director3", 7, false);
+        Movie thirdMovie = new Movie(3, "Movie3", "1983", "Director3", 7, false, null);
         movies.add(thirdMovie);
 
         return movies;

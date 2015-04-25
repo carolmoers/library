@@ -20,4 +20,13 @@ public class LoginTest {
         assertThat(userLogged.getPassword(), is(equalTo(userExpected.getPassword())));
         assertThat(userLogged.getPhoneNumber(), is(equalTo(userExpected.getPhoneNumber())));
     }
+
+    @Test
+    public void verifyInvalidLoginTest() {
+        String libraryNumber = "111-1111";
+        String password = "hdiushd";
+        Login login = new Login();
+
+        assertThat(login.verifyLogin(libraryNumber, password), is(equalTo(null)));
+    }
 }
