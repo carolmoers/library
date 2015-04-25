@@ -15,11 +15,11 @@ public class Users {
     }
 
     public List<User> createPredefinedUsers() {
-        User firstUser = new User("111-1111", "123456", "User1", "email@test.com", "1111-1111");
+        User firstUser = new User("111-1111", "123456", "Steven Universe", "esteven@universe.com", "3218-4675");
         this.users.add(firstUser);
-        User secondUser = new User("222-2222", "123456", "User2", "email2@test.com", "2222-2222");
+        User secondUser = new User("222-2222", "123456", "Princess Bubblegum", "bubblegum@adventure.com", "3284-6571");
         this.users.add(secondUser);
-        User thirdUser = new User("333-3333", "123456", "User3", "email3@test.com", "3333-3333");
+        User thirdUser = new User("333-3333", "123456", "Finn the Human", "finn3@adventure.com", "3761-4829");
         this.users.add(thirdUser);
 
         return this.users;

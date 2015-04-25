@@ -14,9 +14,8 @@ public class LoginProcessor {
             String password = mainProcessor.getInputDataString(Message.LOGIN_INPUT_PASSWORD);
 
             Login login = new Login();
-
-            if (login.verifyLogin(libraryNumber, password) != null){
-                userLogged = login.verifyLogin(libraryNumber, password);
+            userLogged = login.verifyLogin(libraryNumber, password);
+            if (userLogged != null){
                 findUser = true;
             }else{
                 System.out.println(Message.INVALID_USER);

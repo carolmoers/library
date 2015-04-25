@@ -9,7 +9,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 public class LoginTest {
     @Test
     public void verifyLoginTest(){
-        User userExpected = new User("111-1111","123456","User1", "email@test.com", "1111-1111");
+        User userExpected = new User("111-1111","123456","Steven Universe", "esteven@universe.com", "3218-4675");
 
         Login login = new Login();
         User userLogged = login.verifyLogin(userExpected.getLibraryNumber(), userExpected.getPassword());

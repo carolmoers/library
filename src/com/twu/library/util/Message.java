@@ -23,13 +23,14 @@ public class Message {
     public final static String INVALID_EMAIL = "Ops, some user has a invalid email.";
     public final static String LOGIN_INPUT_LIBRARY_NUMBER = "Enter the library number: ";
     public final static String LOGIN_INPUT_PASSWORD = "Enter the password: ";
-    public final static String INVALID_USER = "Library number or password was invalid";
+    public final static String INVALID_USER = "Library number or password is invalid";
 
     public static String getWelcomeMessage(){
         StringBuilder welcomeMessage = new StringBuilder();
-        welcomeMessage.append("\n\n+------------------------------------------------+\n");
-        welcomeMessage.append("|           WELCOME TO THE LIBRARY, %s!       |\n");
-        welcomeMessage.append("+------------------------------------------------+\n\n");
+        welcomeMessage.append("\n\n");
+        welcomeMessage.append("+-------------------------------------------------------------+\n");
+        welcomeMessage.append("           WELCOME TO THE LIBRARY, %s!                         \n");
+        welcomeMessage.append("+-------------------------------------------------------------+\n\n");
 
         return welcomeMessage.toString();
     }

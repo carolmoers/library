@@ -69,9 +69,9 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 1;
-        String userWhoHasCheckedOut = null;
+        User user = new User();
 
-        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
+        String returnCheckout = movie.checkoutMovieFor(code, movies, user);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the movie.")));
     }
@@ -82,9 +82,9 @@ public class MovieTest {
 
         Movie movie = new Movie();
         int code = 4;
-        String userWhoHasCheckedOut = null;
+        User user = new User();
 
-        String returnCheckout = movie.checkoutMovieFor(code, movies, userWhoHasCheckedOut);
+        String returnCheckout = movie.checkoutMovieFor(code, movies, user);
 
         assertThat(returnCheckout, is(equalTo("The movie is not available.")));
     }
@@ -93,9 +93,9 @@ public class MovieTest {
     public void checkoutMovieThrowExceptionTest(){
         Movie movie = new Movie();
         int code = 4;
-        String userWhoHasCheckedOut = null;
+        User user = new User();
 
-        movie.checkoutMovieFor(code, null, userWhoHasCheckedOut);
+        movie.checkoutMovieFor(code, null, user);
     }
 
     @Test

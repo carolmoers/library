@@ -6,8 +6,8 @@ public class Login {
     public User verifyLogin(String libraryNumber, String password) {
 
         Users users = new Users();
-        List<User> listOfAllUsers = users.createPredefinedUsers();
-        for(User user : listOfAllUsers){
+        List<User> predefinedUsers = users.createPredefinedUsers();
+        for(User user : predefinedUsers){
             if(user.getLibraryNumber().equals(libraryNumber) && user.getPassword().equals(password)){
                 return user;
             }

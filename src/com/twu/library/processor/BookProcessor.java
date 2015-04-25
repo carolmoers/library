@@ -20,7 +20,7 @@ public class BookProcessor {
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
-                String resultCheckout = Book.checkoutBookFor(code, books, user.getName());
+                String resultCheckout = Book.checkoutBookFor(code, books, user);
                 System.out.println(resultCheckout);
             }
         } catch (InputMismatchException ex) {
@@ -34,8 +34,8 @@ public class BookProcessor {
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
-                String resultCheckout = Book.returnBookToLibraryFor(code, books);
-                System.out.println(resultCheckout);
+                String resultReturn = Book.returnBookToLibraryFor(code, books);
+                System.out.println(resultReturn);
             }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);

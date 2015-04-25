@@ -34,8 +34,8 @@ public class BookTest {
 
         Book book = new Book();
         int code = 1;
-        String userWhoHasCheckedOut = "User Test";
-        String returnCheckout = book.checkoutBookFor(code, books, userWhoHasCheckedOut);
+        User user = new User("111-1111","123456","Steven Universe", "esteven@universe.com", "3218-4675");
+        String returnCheckout = book.checkoutBookFor(code, books, user);
 
         assertThat(returnCheckout, is(equalTo("Thank you! Enjoy the book.")));
     }
@@ -46,8 +46,8 @@ public class BookTest {
 
         Book book = new Book();
         int code = 4;
-        String userWhoHasCheckedOut = "User Test";
-        String returnCheckout = book.checkoutBookFor(code, books, userWhoHasCheckedOut);
+        User user = new User("111-1111","123456","Steven Universe", "esteven@universe.com", "3218-4675");
+        String returnCheckout = book.checkoutBookFor(code, books, user);
 
         assertThat(returnCheckout, is(equalTo("The book is not available.")));
     }

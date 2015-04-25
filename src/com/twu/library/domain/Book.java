@@ -57,13 +57,13 @@ public class Book {
         this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
-    public static String checkoutBookFor(Integer code, List<Book> books, String userWhoHasCheckedOut) {
+    public static String checkoutBookFor(Integer code, List<Book> books, User user) {
         try{
             List<Book> availableBooks = Books.getAvailableBooksToCheckout(books);
             for (Book book : availableBooks) {
                 if (code.equals(book.getCode())) {
                     book.setCheckout(true);
-                    book.setUserWhoHasCheckedOut(userWhoHasCheckedOut);
+                    book.setUserWhoHasCheckedOut(user.getName());
                     return Message.SUCCESSFUL_BOOK_CHECKOUT;
                 }
             }

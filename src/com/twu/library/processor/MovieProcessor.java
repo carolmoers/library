@@ -20,7 +20,7 @@ public class MovieProcessor {
             if(!movies.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
-                String resultCheckout = Movie.checkoutMovieFor(code, movies, user.getName());
+                String resultCheckout = Movie.checkoutMovieFor(code, movies, user);
                 System.out.println(resultCheckout);
             }
         } catch (InputMismatchException ex) {
@@ -34,8 +34,8 @@ public class MovieProcessor {
             if(!movies.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
                 Integer code = mainProcessor.getInputDataInteger(message);
-                String resultCheckout = Movie.returnMovieToLibraryFor(code, movies);
-                System.out.println(resultCheckout);
+                String resultReturn = Movie.returnMovieToLibraryFor(code, movies);
+                System.out.println(resultReturn);
             }
         } catch (InputMismatchException ex) {
             System.out.println(Message.INVALID_INPUT);

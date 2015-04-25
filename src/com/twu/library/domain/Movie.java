@@ -64,13 +64,13 @@ public class Movie {
         this.userWhoHasCheckedOut = userWhoHasCheckedOut;
     }
 
-    public static String checkoutMovieFor(Integer code, List<Movie> movies, String userWhoHasCheckedOut) {
+    public static String checkoutMovieFor(Integer code, List<Movie> movies, User user) {
         try{
             List<Movie> availableMovies = Movies.getAvailableMoviesToCheckout(movies);
             for (Movie movie : availableMovies) {
                 if (code.equals(movie.getCode())) {
                     movie.setCheckout(true);
-                    movie.setUserWhoHasCheckedOut(userWhoHasCheckedOut);
+                    movie.setUserWhoHasCheckedOut(user.getName());
                     return Message.SUCCESSFUL_MOVIE_CHECKOUT;
                 }
             }
