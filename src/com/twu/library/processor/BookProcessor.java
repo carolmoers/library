@@ -6,7 +6,6 @@ import com.twu.library.util.Message;
 
 import java.util.InputMismatchException;
 import java.util.List;
-import java.util.Scanner;
 
 public class BookProcessor {
 
@@ -19,7 +18,7 @@ public class BookProcessor {
             showBookDetails(books);
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
-                Integer code = mainProcessor.getInputData(message);
+                Integer code = mainProcessor.getInputDataInteger(message);
                 String resultCheckout = Book.checkoutBookFor(code, books);
                 System.out.println(resultCheckout);
             }
@@ -33,7 +32,7 @@ public class BookProcessor {
             showBookDetails(books);
             if(!books.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
-                Integer code = mainProcessor.getInputData(message);
+                Integer code = mainProcessor.getInputDataInteger(message);
                 String resultCheckout = Book.returnBookToLibraryFor(code, books);
                 System.out.println(resultCheckout);
             }

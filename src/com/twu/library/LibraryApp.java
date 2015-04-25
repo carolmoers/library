@@ -1,10 +1,8 @@
 package com.twu.library;
 
-import com.twu.library.domain.Book;
-import com.twu.library.domain.Books;
-import com.twu.library.domain.Movie;
-import com.twu.library.domain.Movies;
+import com.twu.library.domain.*;
 import com.twu.library.processor.BookProcessor;
+import com.twu.library.processor.LoginProcessor;
 import com.twu.library.processor.MainProcessor;
 import com.twu.library.processor.MovieProcessor;
 import com.twu.library.util.MainMenu;
@@ -18,14 +16,18 @@ public class LibraryApp {
     private static List<Movie> movies;
 
     public static void main(String[] args) {
-        Books listOfBooks = new Books();
-        books = listOfBooks.createPredefinedBooks();
+        User user = LoginProcessor.loginApp();
 
-        Movies listOfMovies = new Movies();
-        movies = listOfMovies.createPredefinedMovies();
+        if(!user.getName().isEmpty()) {
+            Books listOfBooks = new Books();
+            books = listOfBooks.createPredefinedBooks();
 
-        System.out.println(Message.WELCOME_MESSAGE);
-        optionsApp();
+            Movies listOfMovies = new Movies();
+            movies = listOfMovies.createPredefinedMovies();
+
+            System.out.println(String.format(Message.getWelcomeMessage(), user.getName()));
+            optionsApp();
+        }
     }
 
     private static void optionsApp(){
@@ -39,7 +41,7 @@ public class LibraryApp {
                 MovieProcessor movieProcessor = new MovieProcessor();
 
                 MainProcessor mainProcessor = new MainProcessor();
-                Integer optionChoose = mainProcessor.getInputData(Message.MAIN_MENU_INPUT_DATA);
+                Integer optionChoose = mainProcessor.getInputDataInteger(Message.MAIN_MENU_INPUT_DATA);
 
                 switch (optionChoose) {
                     case 1:

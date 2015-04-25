@@ -9,10 +9,14 @@ public class User {
     private String email;
     private String phoneNumber;
 
+    public User(){
+
+    }
 
     public User(String libraryNumber, String password, String name, String email, String phoneNumber) {
         validateLibraryNumber(libraryNumber);
         validatePhoneNumber(phoneNumber);
+        validateEmail(email);
         this.libraryNumber = libraryNumber;
         this.password = password;
         this.email = email;
@@ -21,23 +25,23 @@ public class User {
     }
 
     public String getLibraryNumber() {
-        return libraryNumber;
+        return this.libraryNumber;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getPhoneNumber() {
-        return phoneNumber;
+        return this.phoneNumber;
     }
 
     private void validateLibraryNumber(String libraryNumber){
@@ -53,6 +57,14 @@ public class User {
 
         if(!phoneNumber.matches(phoneNumberPattern)){
             throw new IllegalArgumentException(Message.INVALID_PHONE_NUMBER);
+        }
+    }
+
+    private void validateEmail(String email){
+        String emailPattern = "\\w+@\\w+\\.\\w{2,3}";
+
+        if(!email.matches(emailPattern)){
+            throw new IllegalArgumentException(Message.INVALID_EMAIL);
         }
     }
 }

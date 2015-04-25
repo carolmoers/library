@@ -18,7 +18,7 @@ public class MovieProcessor {
             showMovieDetails(movies);
             if(!movies.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
-                Integer code = mainProcessor.getInputData(message);
+                Integer code = mainProcessor.getInputDataInteger(message);
                 String resultCheckout = Movie.checkoutMovieFor(code, movies);
                 System.out.println(resultCheckout);
             }
@@ -32,7 +32,7 @@ public class MovieProcessor {
             showMovieDetails(movies);
             if(!movies.isEmpty()) {
                 MainProcessor mainProcessor = new MainProcessor();
-                Integer code = mainProcessor.getInputData(message);
+                Integer code = mainProcessor.getInputDataInteger(message);
                 String resultCheckout = Movie.returnMovieToLibraryFor(code, movies);
                 System.out.println(resultCheckout);
             }
@@ -43,20 +43,20 @@ public class MovieProcessor {
 
     private void showMovieDetails(List<Movie> movies){
         if(!movies.isEmpty()) {
-            String leftAlignFormat = "| %-4s | %-25s | %-25s | %-5s | %-8s |%n";
+            String leftAlignFormat = "| %-4s | %-30s | %-25s | %-5s | %-8s |%n";
 
-            System.out.format("+------+---------------------------+---------------------------+-------+----------+%n");
-            System.out.printf("| Code | Name                      | Director                  | Year  | Rating   |%n");
-            System.out.format("+------+---------------------------+---------------------------+-------+----------+%n");
+            System.out.format("+------+--------------------------------+---------------------------+-------+----------+%n");
+            System.out.printf("| Code | Name                           | Director                  | Year  | Rating   |%n");
+            System.out.format("+------+--------------------------------+---------------------------+-------+----------+%n");
 
             for (Movie movie : movies) {
                 System.out.format(leftAlignFormat, movie.getCode(), movie.getName(), movie.getDirector(), movie.getYear(), movie.getRating());
             }
-            System.out.format("+------+---------------------------+---------------------------+-------+----------+%n");
+            System.out.format("+------+--------------------------------+---------------------------+-------+----------+%n");
         }else{
-            System.out.format("+------+---------------------------+---------------------------+-------+----------+%n");
+            System.out.format("+------+--------------------------------+---------------------------+-------+----------+%n");
             System.out.printf("|                    There are no available movies                     |          |%n");
-            System.out.format("+------+---------------------------+---------------------------+-------+----------+%n");
+            System.out.format("+------+--------------------------------+---------------------------+-------+----------+%n");
         }
     }
 }

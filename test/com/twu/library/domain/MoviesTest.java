@@ -17,22 +17,22 @@ public class MoviesTest {
         assertThat(movies.createPredefinedMovies().size(), is(3));
 
         assertThat(1, is(equalTo(movies.getMovies().get(0).getCode())));
-        assertThat("Movie1", is(equalTo(movies.getMovies().get(0).getName())));
-        assertThat("Director1", is(equalTo(movies.getMovies().get(0).getDirector())));
-        assertThat("1999", is(equalTo(movies.getMovies().get(0).getYear())));
-        assertThat("8", is(equalTo(movies.getMovies().get(0).getRating())));
+        assertThat("TRON", is(equalTo(movies.getMovies().get(0).getName())));
+        assertThat("Steven Lisberger", is(equalTo(movies.getMovies().get(0).getDirector())));
+        assertThat("1982", is(equalTo(movies.getMovies().get(0).getYear())));
+        assertThat("Unrated", is(equalTo(movies.getMovies().get(0).getRating())));
 
         assertThat(2, is(equalTo(movies.getMovies().get(1).getCode())));
-        assertThat("Movie2", is(equalTo(movies.getMovies().get(1).getName())));
-        assertThat("Director2", is(equalTo(movies.getMovies().get(1).getDirector())));
-        assertThat("2000", is(equalTo(movies.getMovies().get(1).getYear())));
-        assertThat("Unrated", is(equalTo(movies.getMovies().get(1).getRating())));
+        assertThat("Scott Pilgrim vs. the World", is(equalTo(movies.getMovies().get(1).getName())));
+        assertThat("Edgar Wright", is(equalTo(movies.getMovies().get(1).getDirector())));
+        assertThat("2010", is(equalTo(movies.getMovies().get(1).getYear())));
+        assertThat("10", is(equalTo(movies.getMovies().get(1).getRating())));
 
         assertThat(3, is(equalTo(movies.getMovies().get(2).getCode())));
-        assertThat("Movie3", is(equalTo(movies.getMovies().get(2).getName())));
-        assertThat("Director3", is(equalTo(movies.getMovies().get(2).getDirector())));
-        assertThat("2001", is(equalTo(movies.getMovies().get(2).getYear())));
-        assertThat("9", is(equalTo(movies.getMovies().get(2).getRating())));
+        assertThat("Into the Wild", is(equalTo(movies.getMovies().get(2).getName())));
+        assertThat("Sean Penn", is(equalTo(movies.getMovies().get(2).getDirector())));
+        assertThat("2007", is(equalTo(movies.getMovies().get(2).getYear())));
+        assertThat("8", is(equalTo(movies.getMovies().get(2).getRating())));
     }
 
     @Test
@@ -52,7 +52,6 @@ public class MoviesTest {
         assertThat("7", is(equalTo(availableMovies.get(1).getRating())));
     }
 
-
     @Test
     public void getAvailableMoviesToReturnTest(){
         List<Movie> availableMovies = Movies.getAvailableMoviesToReturn(this.getMovies());
@@ -64,6 +63,7 @@ public class MoviesTest {
         assertThat("2012", is(equalTo(availableMovies.get(0).getYear())));
         assertThat("Unrated", is(equalTo(availableMovies.get(0).getRating())));
     }
+
     private List<Movie> getMovies(){
         Movies listOfMovies = new Movies();
         List<Movie> movies = listOfMovies.getMovies();

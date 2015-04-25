@@ -47,4 +47,16 @@ public class UserTest {
 
         User userTest = new User(libraryNumber, password, name, email, phoneNumber);
     }
+
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createMovieWithInvalidEmail(){
+        String libraryNumber = "123-4567";
+        String password = "123456";
+        String name = "User Test";
+        String email = "email@testcom";
+        String phoneNumber = "3333-3333";
+
+        User userTest = new User(libraryNumber, password, name, email, phoneNumber);
+    }
 }

@@ -1,7 +1,6 @@
 package com.twu.library.util;
 
 public class Message {
-    public final static String WELCOME_MESSAGE = "Welcome to the Library!\n";
     public final static String MAIN_MENU_INPUT_DATA = "\nWhat you would like to do (1-7)? ";
     public final static String CHECKOUT_BOOK_INPUT_DATA = "What book would you like to checkout (choose a number)? ";
     public final static String RETURN_BOOK_INPUT_DATA = "What book would you like to return (choose a number)? ";
@@ -21,4 +20,17 @@ public class Message {
     public final static String INVALID_RATING = "Ops, some movie has a invalid rating.";
     public final static String INVALID_LIBRARY_NUMBER = "Ops, some user has a invalid library number.";
     public final static String INVALID_PHONE_NUMBER = "Ops, some user has a invalid phone number.";
+    public final static String INVALID_EMAIL = "Ops, some user has a invalid email.";
+    public final static String LOGIN_INPUT_LIBRARY_NUMBER = "Enter the library number: ";
+    public final static String LOGIN_INPUT_PASSWORD = "Enter the password: ";
+    public final static String INVALID_USER = "Library number or password was invalid";
+
+    public static String getWelcomeMessage(){
+        StringBuilder welcomeMessage = new StringBuilder();
+        welcomeMessage.append("\n\n+------------------------------------------------+\n");
+        welcomeMessage.append("|           WELCOME TO THE LIBRARY, %s!       |\n");
+        welcomeMessage.append("+------------------------------------------------+\n\n");
+
+        return welcomeMessage.toString();
+    }
 }
